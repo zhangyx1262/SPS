@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>com.yonyou.iuap</groupId>
-            <artifactId>iuap-req_order-app</artifactId>
+            <artifactId>iuap-quality-app</artifactId>
             <version>${project.version}</version>
         </dependency>
 
