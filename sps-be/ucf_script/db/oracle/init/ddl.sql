@@ -1,11 +1,11 @@
--- drop table rl cascade constraints;
-create table rl
+-- drop table req_order cascade constraints;
+create table req_order
 (
 ID VARCHAR2(64) not null,
-        constraint PK_rl primary key (ID),
+        constraint PK_req_order primary key (ID),
+        ro_no VARCHAR2(64) null,
         rl_no VARCHAR2(64) null,
-        pr_no VARCHAR2(64) null,
-        rstute VARCHAR2(64) null,
+        postate VARCHAR2(64) null,
         TENANT_ID VARCHAR2(64) NULL,
         DR NUMBER(11) NULL,
         TS VARCHAR2(64) NULL,
@@ -14,23 +14,23 @@ ID VARCHAR2(64) not null,
         CREATE_TIME VARCHAR2(64) NULL,
         CREATE_USER VARCHAR2(64) NULL
 );
-        comment on column rl.rl_no is '审核编号';
-        comment on column rl.pr_no is '申请编号';
-        comment on column rl.rstute is '审核状态';
-comment on column rl.DR is '是否删除';
-comment on column rl.TS is '时间戳';
-comment on column rl.LAST_MODIFIED is '修改时间';
-comment on column rl.LAST_MODIFY_USER is '修改人';
-comment on column rl.CREATE_TIME is '创建时间';
-comment on column rl.CREATE_USER is '创建人';
+        comment on column req_order.ro_no is '订单编号';
+        comment on column req_order.rl_no is '审核编号';
+        comment on column req_order.postate is '采购状态';
+comment on column req_order.DR is '是否删除';
+comment on column req_order.TS is '时间戳';
+comment on column req_order.LAST_MODIFIED is '修改时间';
+comment on column req_order.LAST_MODIFY_USER is '修改人';
+comment on column req_order.CREATE_TIME is '创建时间';
+comment on column req_order.CREATE_USER is '创建人';
 
 
 
-ALTER TABLE rl ADD CONSTRAINT C_rl_Url_no
-UNIQUE (rl_no)
+ALTER TABLE req_order ADD CONSTRAINT C_req_order_Uro_no
+UNIQUE (ro_no)
 ENABLE;
-ALTER TABLE rl ADD CONSTRAINT C_rl_Upr_no
-UNIQUE (pr_no)
+ALTER TABLE req_order ADD CONSTRAINT C_req_order_Url_no
+UNIQUE (rl_no)
 ENABLE;
 
 
