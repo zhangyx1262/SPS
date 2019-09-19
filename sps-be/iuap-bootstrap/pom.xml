@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>com.yonyou.iuap</groupId>
-            <artifactId>iuap-warehousing-app</artifactId>
+            <artifactId>iuap-rejected-app</artifactId>
             <version>${project.version}</version>
         </dependency>
 

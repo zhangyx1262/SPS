@@ -1,11 +1,11 @@
 
--- drop table if EXISTS warehousing;
-CREATE TABLE `warehousing` (
+-- drop table if EXISTS rejected;
+CREATE TABLE `rejected` (
 `ID` VARCHAR(64) NOT NULL COMMENT '主键',
     PRIMARY KEY (`ID`),
-    `wh_no` VARCHAR(64) DEFAULT NULL COMMENT '入库编号',
-    `qc_no` VARCHAR(64) DEFAULT NULL COMMENT '质检编号',
-    `whstate` VARCHAR(64) DEFAULT NULL COMMENT '入库状态',
+    `rj_no` VARCHAR(64) DEFAULT NULL COMMENT '退货单编号',
+    `qc_no` VARCHAR(64) DEFAULT NULL COMMENT '质检单编号',
+    `rjstate` VARCHAR(64) DEFAULT NULL COMMENT '退货状态',
         `TENANT_ID` varchar(64) DEFAULT NULL,
         `DR` int(11) DEFAULT NULL COMMENT '是否删除',
         `TS` varchar(64) DEFAULT NULL COMMENT '时间戳',
@@ -15,8 +15,8 @@ CREATE TABLE `warehousing` (
         `CREATE_USER` varchar(64) DEFAULT NULL COMMENT '创建人'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
-alter table warehousing add unique(wh_no);
-alter table warehousing add unique(qc_no);
+alter table rejected add unique(rj_no);
+alter table rejected add unique(qc_no);
 
 
 
