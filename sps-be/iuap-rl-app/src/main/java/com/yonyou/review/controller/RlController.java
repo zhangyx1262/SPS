@@ -1,4 +1,6 @@
 package com.yonyou.review.controller;
+import com.yonyou.request.po.Pr;
+import com.yonyou.request.service.PrService;
 import com.yonyou.review.po.Rl;
 import com.yonyou.review.dto.RlDTO;
 import com.yonyou.review.service.RlService;
@@ -35,6 +37,8 @@ public class RlController extends BaseController{
     private final static  int PAGE_FLAG_LOAD_ALL = 1;
     private RlService service;
 
+    @Autowired
+    private PrService prService;
     @Autowired
     public void setRlService(RlService service) {
         this.service = service;
@@ -78,6 +82,21 @@ public class RlController extends BaseController{
         }
     }
 
+    /**
+     * 单条查询，获取审核表中的申请内容
+     * @return 要获取的数据
+     */
+    @RequestMapping(value = "/getRequestById" , method = RequestMethod.GET)
+    @ResponseBody
+    public Object  getRequestById(@RequestParam(required = false) String search_ID){
+        //获取审核单
+        GenericAssoVo<Rl> reviewlistvo = service.getAssoVo(search_ID);
+        //获取申请单
+        String prNo=reviewlistvo.getEntity().getPr_no();
+        //获取申请单内容
+        GenericAssoVo<Pr> requestvo=prService.getAssoVo(prNo);
+        return this.buildSuccess(requestvo.getEntity()) ;
+    }
 
      /**
      * 主子表合并处理--主表单条查询

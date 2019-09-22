@@ -14,6 +14,21 @@
         <module>iuap-rejected-api</module>
         <module>iuap-rejected-app</module>
         <module>iuap-rejected-domain</module>
+        <module>iuap-pr-api</module>
+        <module>iuap-pr-app</module>
+        <module>iuap-pr-domain</module>
+        <module>iuap-rl-api</module>
+        <module>iuap-rl-app</module>
+        <module>iuap-rl-domain</module>
+        <module>iuap-quality-api</module>
+        <module>iuap-quality-app</module>
+        <module>iuap-quality-domain</module>
+        <module>iuap-req_order-api</module>
+        <module>iuap-req_order-app</module>
+        <module>iuap-req_order-domain</module>
+        <module>iuap-warehousing-api</module>
+        <module>iuap-warehousing-app</module>
+        <module>iuap-warehousing-domain</module>
     </modules>
 
     <packaging>pom</packaging>

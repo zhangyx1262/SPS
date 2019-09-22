@@ -162,7 +162,7 @@ export default class IndexView extends Component {
     /**
      *
      * @param {string} type 当前选中的table
-     * @param {number} status 状态 0 添加，1 编辑 2. 详情
+     * @param {number} status 状态 0 添加，1 编辑 2. 详情 3.提交
      */
     onShowMainModal = (type, status) => {
         actions.routing.push(
@@ -339,6 +339,12 @@ export default class IndexView extends Component {
                             disabled={prForbid}
                             onClick={() => _this.onShowMainModal("pr", 2)}
                         >详情</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={prForbid}
+                            onClick={() => _this.onShowMainModal("pr", 3)}
+                        >提交</Button>
                         <Button
                             className="ml8"
                             role="delete"

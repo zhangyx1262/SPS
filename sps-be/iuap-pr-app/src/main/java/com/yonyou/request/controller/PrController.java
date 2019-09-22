@@ -9,6 +9,8 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
+import com.yonyou.review.po.Rl;
+import com.yonyou.review.service.RlService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -39,6 +41,12 @@ public class PrController extends BaseController{
     public void setPrService(PrService service) {
         this.service = service;
     }
+
+    @Autowired
+    private RlService rlService;
+
+    //手动创建审核单id
+    private int count=0;
     /**
     * 分页查询
     * @return 分页集合
@@ -79,6 +87,38 @@ public class PrController extends BaseController{
     }
 
 
+    /**
+     * 确认提交，修改状态值为“已申请”
+     * @return
+     */
+    @RequestMapping(value = "/submit" ,method = {RequestMethod.POST,RequestMethod.PATCH})
+    @ResponseBody
+    public Object  submit(@RequestParam(value = "id")   Serializable  id){
+//        if (null==id){ return buildSuccess();}
+        GenericAssoVo<Pr> vo = service.getAssoVo( id);
+//        //状态值改为1
+        String pstute="1";
+        vo.getEntity().setPstute(pstute);
+
+//
+//        //id递增
+//        count++;
+//        //将count强转为String类型
+//        String rlno=Integer.toString(count);
+//
+//        String rstute="0";
+//        //新增审核单
+//        GenericAssoVo<Rl> rlvo = new GenericAssoVo<Rl>();
+//        rlvo.getEntity().setRl_no(rlno);
+//        rlvo.getEntity().setPr_no(vo.getEntity().getPr_no());
+//        rlvo.getEntity().setRstute(rstute);
+//        rlService.saveAssoVo(rlvo);
+//        service.saveAssoVo(vo);
+        updateSelective(vo.getEntity());
+//        JsonResponse result = this.buildSuccess("entity",vo.getEntity());
+        return null ;
+    }
+
      /**
      * 主子表合并处理--主表单条查询
      * @return GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是字表数据,一次性全部加载
@@ -92,6 +132,8 @@ public class PrController extends BaseController{
         result.getDetailMsg().putAll(vo.getSublist());
         return  result;
     }
+
+
     /**
      * 主子表合并处理--主表单条保存
      * @param vo GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是子表数据

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="iuap-warehousing-app" />
+        <module name="iuap-rejected-api" />
+        <module name="iuap-rl-app" />
+        <module name="iuap-rejected-domain" />
+        <module name="iuap-pr-domain" />
+        <module name="iuap-warehousing-api" />
+        <module name="iuap-rl-api" />
+        <module name="iuap-req_order-app" />
+        <module name="iuap-rl-domain" />
+        <module name="iuap-req_order-domain" />
+        <module name="iuap-warehousing-domain" />
+        <module name="iuap-req_order-api" />
+        <module name="iuap-quality-app" />
+        <module name="iuap-quality-domain" />
+        <module name="iuap-common-app" />
+        <module name="iuap-pr-app" />
+        <module name="iuap-bootstrap" />
+        <module name="iuap-quality-api" />
+        <module name="iuap-rejected-app" />
+        <module name="iuap-pr-api" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="iuap-bootstrap" options="-parameters" />
+      <module name="iuap-common-app" options="-parameters" />
+      <module name="iuap-pr-api" options="-parameters" />
+      <module name="iuap-pr-app" options="-parameters" />
+      <module name="iuap-pr-domain" options="-parameters" />
+      <module name="iuap-quality-api" options="-parameters" />
+      <module name="iuap-quality-app" options="-parameters" />
+      <module name="iuap-quality-domain" options="-parameters" />
+      <module name="iuap-rejected-api" options="-parameters" />
+      <module name="iuap-rejected-app" options="-parameters" />
+      <module name="iuap-rejected-domain" options="-parameters" />
+      <module name="iuap-req_order-api" options="-parameters" />
+      <module name="iuap-req_order-app" options="-parameters" />
+      <module name="iuap-req_order-domain" options="-parameters" />
+      <module name="iuap-rl-api" options="-parameters" />
+      <module name="iuap-rl-app" options="-parameters" />
+      <module name="iuap-rl-domain" options="-parameters" />
+      <module name="iuap-warehousing-api" options="-parameters" />
+      <module name="iuap-warehousing-app" options="-parameters" />
+      <module name="iuap-warehousing-domain" options="-parameters" />
+    </option>
+  </component>
+</project>
