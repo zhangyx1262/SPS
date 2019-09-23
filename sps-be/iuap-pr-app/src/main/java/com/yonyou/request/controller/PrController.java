@@ -86,38 +86,23 @@ public class PrController extends BaseController{
         }
     }
 
-
     /**
-     * 确认提交，修改状态值为“已申请”
-     * @return
+     * 确认提交
+     * @return 要获取的数据
      */
-    @RequestMapping(value = "/submit" ,method = {RequestMethod.POST,RequestMethod.PATCH})
+    @RequestMapping(value = "/submit" , method = RequestMethod.POST)
     @ResponseBody
-    public Object  submit(@RequestParam(value = "id")   Serializable  id){
-//        if (null==id){ return buildSuccess();}
-        GenericAssoVo<Pr> vo = service.getAssoVo( id);
-//        //状态值改为1
-        String pstute="1";
-        vo.getEntity().setPstute(pstute);
+    public Object  submit(@RequestParam(required = false) String search_ID){
+        //获取申请单
+        GenericAssoVo<Pr> prvo = service.getAssoVo(search_ID);
+        //申请单状态改为1
+        String pstatu="1";
+        prvo.getEntity().setPstute(pstatu);
+        updateSelective(prvo.getEntity());
+        return this.buildSuccess(prvo.getEntity()) ;
 
-//
-//        //id递增
-//        count++;
-//        //将count强转为String类型
-//        String rlno=Integer.toString(count);
-//
-//        String rstute="0";
-//        //新增审核单
-//        GenericAssoVo<Rl> rlvo = new GenericAssoVo<Rl>();
-//        rlvo.getEntity().setRl_no(rlno);
-//        rlvo.getEntity().setPr_no(vo.getEntity().getPr_no());
-//        rlvo.getEntity().setRstute(rstute);
-//        rlService.saveAssoVo(rlvo);
-//        service.saveAssoVo(vo);
-        updateSelective(vo.getEntity());
-//        JsonResponse result = this.buildSuccess("entity",vo.getEntity());
-        return null ;
     }
+
 
      /**
      * 主子表合并处理--主表单条查询
