@@ -11,7 +11,7 @@ import AcAttachment from 'ac-attachment';
 import RefCommon from 'components/RefCommon';
 
 import SearchArea from '../SearchArea/index';
-
+import {sunmitpr} from '../../../../service'
 
 import {deepClone, Warning, getPageParam,success} from "utils";
 import 'ac-attachment/dist/ac-attachment.css';
@@ -31,6 +31,12 @@ export default class IndexView extends Component {
             flag: -1, //按钮状态
         }
 
+    }
+
+//提交
+    sunmitpr () {
+        sunmitpr();
+        window.location.href = "127.0.0.1:3000/sps-fe/request-pr";
     }
 
     componentDidMount() {
@@ -343,7 +349,7 @@ export default class IndexView extends Component {
                             className="ml8"
                             shape='border'
                             disabled={prForbid}
-                            onClick={() => _this.onShowMainModal("pr", 3)}
+                            onClick={() => _this.sunmitpr()}
                         >提交</Button>
                         <Button
                             className="ml8"
