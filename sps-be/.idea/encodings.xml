@@ -22,5 +22,10 @@
     <file url="file://$PROJECT_DIR$/iuap-warehousing-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iuap-warehousing-app" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iuap-warehousing-domain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ucf_script/db/mysql/sql/pr.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ucf_script/db/mysql/sql/quality.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ucf_script/db/mysql/sql/rejected.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ucf_script/db/mysql/sql/req_order.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ucf_script/db/mysql/sql/warehousing.txt" charset="GBK" />
   </component>
 </project>
