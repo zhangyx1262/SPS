@@ -9,8 +9,6 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
-import com.yonyou.review.po.Rl;
-import com.yonyou.review.service.RlService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -27,7 +25,7 @@ import java.util.ArrayList;
 /**
 * 说明：申请单基础Controller——提供数据增(CREATE)、删(DELETE、改(UPDATE)、查(READ)等rest接口
 * @author  
-* @date 2019-9-12 16:23:41
+* @date 2019-10-21 21:36:41
 */
 @RestController("com.yonyou.request.controller.PrController")
 @RequestMapping(value = "/request/pr")
@@ -41,12 +39,6 @@ public class PrController extends BaseController{
     public void setPrService(PrService service) {
         this.service = service;
     }
-
-    @Autowired
-    private RlService rlService;
-
-    //手动创建审核单id
-    private int count=0;
     /**
     * 分页查询
     * @return 分页集合
@@ -86,23 +78,6 @@ public class PrController extends BaseController{
         }
     }
 
-    /**
-     * 确认提交
-     * @return 要获取的数据
-     */
-    @RequestMapping(value = "/submit" , method = RequestMethod.POST)
-    @ResponseBody
-    public Object  submit(@RequestParam(required = false) String search_ID){
-        //获取申请单
-        GenericAssoVo<Pr> prvo = service.getAssoVo(search_ID);
-        //申请单状态改为1
-        String pstatu="1";
-        prvo.getEntity().setPstute(pstatu);
-        updateSelective(prvo.getEntity());
-        return this.buildSuccess(prvo.getEntity()) ;
-
-    }
-
 
      /**
      * 主子表合并处理--主表单条查询
@@ -117,8 +92,6 @@ public class PrController extends BaseController{
         result.getDetailMsg().putAll(vo.getSublist());
         return  result;
     }
-
-
     /**
      * 主子表合并处理--主表单条保存
      * @param vo GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是子表数据

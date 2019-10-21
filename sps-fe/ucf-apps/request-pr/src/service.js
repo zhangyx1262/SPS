@@ -3,24 +3,12 @@ import request from "utils/request";
 
 //定义接口地址
 const URL = {
-    "SUBMIT_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/submit', // 提交主表
     "GET_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/list', // 获取主表
     "SAVE_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/insertSelective', // 保存主表
     "UPDATE_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/updateSelective', // 更新主表
     "DEL_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/deleteBatch', // 删除主表
     "GET_QUERYPRINTTEMPLATEALLOCATE": `/eiap-plus/appResAllocate/queryPrintTemplateAllocate`,  // 查询打印模板
     "PRINTSERVER": '/print_service/print/preview',                                              // 打印
-}
-
-/**
- * 提交主列表
- * @param {*} params
- */
-export const sunmitpr = (params) => {
-    return request(URL.SUBMIT_pr, {
-        method: "post",
-        data: params
-    });
 }
 
 /**

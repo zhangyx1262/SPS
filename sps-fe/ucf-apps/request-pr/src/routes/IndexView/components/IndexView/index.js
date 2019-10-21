@@ -11,7 +11,7 @@ import AcAttachment from 'ac-attachment';
 import RefCommon from 'components/RefCommon';
 
 import SearchArea from '../SearchArea/index';
-import {sunmitpr} from '../../../../service'
+
 
 import {deepClone, Warning, getPageParam,success} from "utils";
 import 'ac-attachment/dist/ac-attachment.css';
@@ -31,12 +31,6 @@ export default class IndexView extends Component {
             flag: -1, //按钮状态
         }
 
-    }
-
-//提交
-    sunmitpr () {
-        sunmitpr();
-        window.location.href = "127.0.0.1:3000/sps-fe/request-pr";
     }
 
     componentDidMount() {
@@ -168,7 +162,7 @@ export default class IndexView extends Component {
     /**
      *
      * @param {string} type 当前选中的table
-     * @param {number} status 状态 0 添加，1 编辑 2. 详情 3.提交
+     * @param {number} status 状态 0 添加，1 编辑 2. 详情
      */
     onShowMainModal = (type, status) => {
         actions.routing.push(
@@ -345,12 +339,6 @@ export default class IndexView extends Component {
                             disabled={prForbid}
                             onClick={() => _this.onShowMainModal("pr", 2)}
                         >详情</Button>
-                        <Button
-                            className="ml8"
-                            shape='border'
-                            disabled={prForbid}
-                            onClick={() => _this.sunmitpr()}
-                        >提交</Button>
                         <Button
                             className="ml8"
                             role="delete"

@@ -1,6 +1,6 @@
 
 
-CREATE TABLE [rejected] (
+CREATE TABLE [pr] (
 
 [ID] varchar(64)   NOT NULL ,
 [TS] varchar(64)   NULL ,
@@ -9,42 +9,49 @@ CREATE TABLE [rejected] (
 [LAST_MODIFIED] varchar(64)   NULL ,
 [LAST_MODIFY_USER] varchar(64)   NULL ,
 
-[rj_no] VARCHAR(64)   NULL ,
-[qc_no] VARCHAR(64)   NULL ,
-[rjstate] VARCHAR(64)   NULL ,
+[pr_no] VARCHAR(64)   NULL ,
+[pname] VARCHAR(64)   NULL ,
+[pnum] VARCHAR(64)   NULL ,
+[price] VARCHAR(64)   NULL ,
+[ptime] VARCHAR(64)   NULL ,
+[pstute] VARCHAR(64)   NULL ,
    PRIMARY KEY ([ID])
 )
 ON [PRIMARY]
 GO
 
-EXEC sp_addextendedproperty 'MS_Description',N'退货单编号','user','dbo','TABLE','rejected','COLUMN','rj_no'
+EXEC sp_addextendedproperty 'MS_Description',N'申请单编号','user','dbo','TABLE','pr','COLUMN','pr_no'
 GO
-EXEC sp_addextendedproperty 'MS_Description',N'质检单编号','user','dbo','TABLE','rejected','COLUMN','qc_no'
+EXEC sp_addextendedproperty 'MS_Description',N'采购品名','user','dbo','TABLE','pr','COLUMN','pname'
 GO
-EXEC sp_addextendedproperty 'MS_Description',N'退货状态','user','dbo','TABLE','rejected','COLUMN','rjstate'
+EXEC sp_addextendedproperty 'MS_Description',N'采购数量','user','dbo','TABLE','pr','COLUMN','pnum'
 GO
-
-
-EXEC sp_addextendedproperty 'MS_Description',N'主键 ID','user','dbo','TABLE','rejected','COLUMN','ID'
+EXEC sp_addextendedproperty 'MS_Description',N'采购单价','user','dbo','TABLE','pr','COLUMN','price'
 GO
-EXEC sp_addextendedproperty 'MS_Description',N'乐观锁时间戳','user','dbo','TABLE','rejected','COLUMN','TS'
+EXEC sp_addextendedproperty 'MS_Description',N'申请时间','user','dbo','TABLE','pr','COLUMN','ptime'
 GO
-EXEC sp_addextendedproperty 'MS_Description',N'修改时间','user','dbo','TABLE','rejected','COLUMN','LAST_MODIFIED'
-GO
-EXEC sp_addextendedproperty 'MS_Description',N'修改人','user','dbo','TABLE','rejected','COLUMN','LAST_MODIFY_USER'
-GO
-EXEC sp_addextendedproperty 'MS_Description',N'创建时间','user','dbo','TABLE','rejected','COLUMN','CREATE_TIME'
-GO
-EXEC sp_addextendedproperty 'MS_Description',N'创建人','user','dbo','TABLE','rejected','COLUMN','CREATE_USER'
-GO
-EXEC sp_addextendedproperty 'MS_Description',N'租户标识','user','dbo','TABLE','rejected','COLUMN','TENANT_ID'
-GO
-EXEC sp_addextendedproperty 'MS_Description',N'是否删除','user','dbo','TABLE','rejected','COLUMN','DR'
+EXEC sp_addextendedproperty 'MS_Description',N'申请状态','user','dbo','TABLE','pr','COLUMN','pstute'
 GO
 
-ALTER TABLE [dbo].[rejected] ADD CONSTRAINT [UNIQ_RJ_NO] UNIQUE ([rj_no])
+
+EXEC sp_addextendedproperty 'MS_Description',N'主键 ID','user','dbo','TABLE','pr','COLUMN','ID'
 GO
-ALTER TABLE [dbo].[rejected] ADD CONSTRAINT [UNIQ_QC_NO] UNIQUE ([qc_no])
+EXEC sp_addextendedproperty 'MS_Description',N'乐观锁时间戳','user','dbo','TABLE','pr','COLUMN','TS'
+GO
+EXEC sp_addextendedproperty 'MS_Description',N'修改时间','user','dbo','TABLE','pr','COLUMN','LAST_MODIFIED'
+GO
+EXEC sp_addextendedproperty 'MS_Description',N'修改人','user','dbo','TABLE','pr','COLUMN','LAST_MODIFY_USER'
+GO
+EXEC sp_addextendedproperty 'MS_Description',N'创建时间','user','dbo','TABLE','pr','COLUMN','CREATE_TIME'
+GO
+EXEC sp_addextendedproperty 'MS_Description',N'创建人','user','dbo','TABLE','pr','COLUMN','CREATE_USER'
+GO
+EXEC sp_addextendedproperty 'MS_Description',N'租户标识','user','dbo','TABLE','pr','COLUMN','TENANT_ID'
+GO
+EXEC sp_addextendedproperty 'MS_Description',N'是否删除','user','dbo','TABLE','pr','COLUMN','DR'
+GO
+
+ALTER TABLE [dbo].[pr] ADD CONSTRAINT [UNIQ_PR_NO] UNIQUE ([pr_no])
 GO
 
 
