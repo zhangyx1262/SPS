@@ -9,6 +9,9 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
+import com.yonyou.quality.dto.QualityDTO;
+import com.yonyou.quality.po.Quality;
+import com.yonyou.quality.service.QualityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -35,6 +38,8 @@ public class Req_orderController extends BaseController{
     private final static  int PAGE_FLAG_LOAD_ALL = 1;
     private Req_orderService service;
 
+    @Autowired
+    private QualityService qualityService;
     @Autowired
     public void setReq_orderService(Req_orderService service) {
         this.service = service;
@@ -76,6 +81,39 @@ public class Req_orderController extends BaseController{
             logger.error("exp", exp);
             return this.buildError("msg", "Error query database", RequestStatusEnum.FAIL_FIELD);
         }
+    }
+
+    /**
+     * 采购完成
+     */
+    @RequestMapping(value = "/order" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object order(@RequestBody List<Req_order> listData){
+        //获取采购单id
+        Req_order entity=listData.get(0);
+        String odId=entity.getId();
+        //获取采购单
+        Req_order odentity=service.getAssoVo(odId).getEntity();
+        //修改订单状态
+        odentity.setPostate("1");
+        //保存修改
+        odentity=service.save(odentity,false,true);
+        Req_orderDTO odDTO= new Req_orderDTO();
+        BeanUtils.copyProperties(odentity,odDTO);
+
+        //新增质检单
+        Quality qlentity=new Quality();
+        String prno=odentity.getRl_no().substring(2);
+        qlentity.setId("质检"+prno);
+        qlentity.setQc_no("质检"+prno);
+        qlentity.setPo_no(odentity.getRo_no());
+        qlentity.setQc_state("0");
+
+        qlentity = this.qualityService.save(qlentity,true,true);
+        QualityDTO qldto = new QualityDTO();
+        BeanUtils.copyProperties(qlentity,qldto);
+
+        return this.buildSuccess();
     }
 
 

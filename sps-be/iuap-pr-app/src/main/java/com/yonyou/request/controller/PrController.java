@@ -9,6 +9,7 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
+import com.yonyou.review.dto.RlDTO;
 import com.yonyou.review.po.Rl;
 import com.yonyou.review.service.RlService;
 import org.slf4j.Logger;
@@ -38,15 +39,17 @@ public class PrController extends BaseController{
     private PrService service;
 
     @Autowired
+    private RlService rlservice;
+    @Autowired
     public void setPrService(PrService service) {
         this.service = service;
     }
 
-    @Autowired
-    private RlService rlService;
+
+
 
     //手动创建审核单id
-    private int count=0;
+    private int count=2;
     /**
     * 分页查询
     * @return 分页集合
@@ -87,22 +90,38 @@ public class PrController extends BaseController{
     }
 
     /**
-     * 确认提交
-     * @return 要获取的数据
+     * 提交申请
      */
-    @RequestMapping(value = "/submit" , method = RequestMethod.POST)
+    @RequestMapping(value = "/submitPr" , method = RequestMethod.POST)
     @ResponseBody
-    public Object  submit(@RequestParam(required = false) String search_ID){
+    public Object submitPr(@RequestBody List<Pr> listData){
+        //获取申请单id
+        Pr entity=listData.get(0);
+        String prId=entity.getId();
         //获取申请单
-        GenericAssoVo<Pr> prvo = service.getAssoVo(search_ID);
-        //申请单状态改为1
-        String pstatu="1";
-        prvo.getEntity().setPstute(pstatu);
-        updateSelective(prvo.getEntity());
-        return this.buildSuccess(prvo.getEntity()) ;
+        Pr prentity=service.getAssoVo(prId).getEntity();
+        //修改申请状态
+        prentity.setPstute("1");
+        //保存修改
+        prentity=service.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
 
+        //新增审核单
+        Rl rlentity=new Rl();
+        //填写审核单的数据
+        rlentity.setId("审核"+prentity.getPr_no());
+        rlentity.setRl_no("审核"+prentity.getPr_no());
+        rlentity.setPr_no(prentity.getPr_no()+"/"+prentity.getId());
+        rlentity.setRstute("0");
+
+        rlentity = this.rlservice.save(rlentity,true,true);
+        RlDTO rldto = new RlDTO();
+        BeanUtils.copyProperties(rlentity,rldto);
+
+
+        return this.buildSuccess();
     }
-
 
      /**
      * 主子表合并处理--主表单条查询

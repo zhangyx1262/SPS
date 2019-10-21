@@ -1,4 +1,8 @@
 package com.yonyou.review.controller;
+import com.yonyou.order.dto.Req_orderDTO;
+import com.yonyou.order.po.Req_order;
+import com.yonyou.order.service.Req_orderService;
+import com.yonyou.request.dto.PrDTO;
 import com.yonyou.request.po.Pr;
 import com.yonyou.request.service.PrService;
 import com.yonyou.review.po.Rl;
@@ -39,6 +43,8 @@ public class RlController extends BaseController{
 
     @Autowired
     private PrService prService;
+    @Autowired
+    private Req_orderService orderservice;
     @Autowired
     public void setRlService(RlService service) {
         this.service = service;
@@ -91,14 +97,79 @@ public class RlController extends BaseController{
     public Object  getRequestById(@RequestParam(required = false) String search_ID){
         //获取审核单
         GenericAssoVo<Rl> reviewlistvo = service.getAssoVo(search_ID);
-        //获取申请单
+        //获取申请单id
         String prNo=reviewlistvo.getEntity().getPr_no();
+        String prid=prNo.substring(prNo.indexOf("/")+1);
         //获取申请单内容
-        GenericAssoVo<Pr> requestvo=prService.getAssoVo(prNo);
+        GenericAssoVo<Pr> requestvo=prService.getAssoVo(prid);
         return this.buildSuccess(requestvo.getEntity()) ;
     }
 
-     /**
+    /**
+     * 审核通过
+     */
+    @RequestMapping(value = "/reviewRl" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object reviewRl(@RequestBody List<Rl> listData){
+        //获取审核单id
+        Rl entity=listData.get(0);
+        String rlId=entity.getId();
+        //获取审核单
+        Rl rlentity=service.getAssoVo(rlId).getEntity();
+        //修改审核状态
+        rlentity.setRstute("1");
+        //保存修改
+        rlentity=service.save(rlentity,false,true);
+        RlDTO rlDTO= new RlDTO();
+        BeanUtils.copyProperties(rlentity,rlDTO);
+
+        //新增采购订单
+        Req_order odentity=new Req_order();
+        odentity.setId("采购"+rlentity.getPr_no());
+        odentity.setRo_no("采购"+rlentity.getPr_no());
+        odentity.setRl_no(rlentity.getRl_no());
+        odentity.setPostate("0");
+
+        odentity = this.orderservice.save(odentity,true,true);
+        Req_orderDTO oddto = new Req_orderDTO();
+        BeanUtils.copyProperties(odentity,oddto);
+
+        return this.buildSuccess();
+    }
+
+    /**
+     * 审核不通过
+     */
+    @RequestMapping(value = "/dreviewRl" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object dreviewRl(@RequestBody List<Rl> listData){
+        //获取审核单id
+        Rl entity=listData.get(0);
+        String rlId=entity.getId();
+        //获取审核单
+        Rl rlentity=service.getAssoVo(rlId).getEntity();
+        //修改审核状态
+        rlentity.setRstute("2");
+        //保存修改
+        rlentity=service.save(rlentity,false,true);
+        RlDTO rlDTO= new RlDTO();
+        BeanUtils.copyProperties(rlentity,rlDTO);
+
+        String prNo=rlentity.getPr_no();
+        String prid=prNo.substring(prNo.indexOf("/")+1);
+        //获取申请单
+        Pr prentity=prService.getAssoVo(prid).getEntity();
+        //修改申请状态
+
+        //保存修改
+        prentity=prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
+
+        return this.buildSuccess();
+    }
+
+    /**
      * 主子表合并处理--主表单条查询
      * @return GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是字表数据,一次性全部加载
      */
@@ -201,6 +272,7 @@ public class RlController extends BaseController{
     @RequestMapping(value = "/deleteBatch", method = RequestMethod.POST)
     @ResponseBody
     public Object deleteBatch(@RequestBody List<Rl> listData) throws Exception {
+
         this.service.deleteBatch(listData);
         return super.buildSuccess();
     }

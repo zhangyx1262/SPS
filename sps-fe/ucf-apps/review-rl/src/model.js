@@ -101,7 +101,7 @@ export default {
                 const {result} = processData(await api.updaterl(param), '修改成功');
                 status = result.status;
             }
-
+            
             if (status === 'success') { // 如果不判断是会报错，param参数有错
                 const {pageSize} = getState().masterDetailMany.rlObj;
                 // 带上子表信息
@@ -112,14 +112,54 @@ export default {
             actions.masterDetailMany.updateState({showLoading: false});
         },
         /**
+         * 通过审核，提交主表数据
+         * @param {*} param
+         * @param {*} getState
+         */
+        async reviewRl(param, getState) {
+            
+            const {id} = param;
+            
+            const {result}=processData(await api.reviewRl([{id}]), '审核通过成功');
+            
+            const {status}=result;
+            
+
+            if(status==='success'){
+                // 获取表pageSize;
+                const {rlObj} = getState().masterDetailMany;
+                const {pageSize} = rlObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+            
+        },
+        async dreviewRl(param, getState) {
+            const {id} = param;
+            const {result}=processData(await api.dreviewRl([{id}]), '审核不通过成功');
+            const {status}=result;
+            if(status==='success'){
+                // 获取表pageSize;
+                const {rlObj} = getState().masterDetailMany;
+                const {pageSize} = rlObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+            
+        },
+        /**
          * 删除主表数据
          * @param {*} param
          * @param {*} getState
          */
         async delrl(param, getState) {
+           // alert("222");
             const {id} = param;
+            alert(id);
             const {result}=processData(await api.delrl([{id}]), '删除成功');
+           // alert(result);
             const {status}=result;
+           // alert(status);
             if(status==='success'){
                 // 获取表pageSize;
                 const {rlObj} = getState().masterDetailMany;

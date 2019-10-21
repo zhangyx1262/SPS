@@ -11,7 +11,7 @@ import AcAttachment from 'ac-attachment';
 import RefCommon from 'components/RefCommon';
 
 import SearchArea from '../SearchArea/index';
-import {sunmitpr} from '../../../../service'
+
 
 import {deepClone, Warning, getPageParam,success} from "utils";
 import 'ac-attachment/dist/ac-attachment.css';
@@ -24,6 +24,7 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            SubModalVisible:false,//显示提交弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -33,11 +34,7 @@ export default class IndexView extends Component {
 
     }
 
-//提交
-    sunmitpr () {
-        sunmitpr();
-        window.location.href = "127.0.0.1:3000/sps-fe/request-pr";
-    }
+
 
     componentDidMount() {
         this.loadPage();
@@ -97,6 +94,13 @@ export default class IndexView extends Component {
      */
     onClickDel = (checkTable) => {
         this.setState({delModalVisible: true, checkTable});
+    }
+
+    /**
+     * 显示提交弹框
+     */
+    onClickSub = (checkTable) => {
+        this.setState({SubModalVisible: true, checkTable});
     }
 
     /**
@@ -190,6 +194,25 @@ export default class IndexView extends Component {
             checkTable: type,
         });
     }
+
+    /**
+     *提交确定操作
+     * @param {number} type 1.确认 2.取消
+     */
+    async submitGoBack(type) {
+       
+        const {checkTable} = this.state; //获取审核的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({SubModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "pr") { // 主表
+                const {prIndex} = this.props;
+                const record = list[prIndex];
+                await actions.masterDetailMany.subpr(record);
+            }
+        }
+    }
+
     /**
      *删除确定操作
      * @param {number} type 1.删除 2.取消
@@ -310,7 +333,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            SubModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -349,7 +372,7 @@ export default class IndexView extends Component {
                             className="ml8"
                             shape='border'
                             disabled={prForbid}
-                            onClick={() => _this.sunmitpr()}
+                            onClick={() => _this.onClickSub("pr")}
                         >提交</Button>
                         <Button
                             className="ml8"
@@ -417,6 +440,11 @@ export default class IndexView extends Component {
                     confirmFn={() => _this.confirmGoBack(1)}
                     cancelFn={() => _this.confirmGoBack(2)}/>
 
+                <Alert
+                    show={SubModalVisible}
+                    context="确定提交这条申请吗 ?"
+                    confirmFn={() => _this.submitGoBack(1)}
+                    cancelFn={() => _this.submitGoBack(2)}/>
                 <Alert
                     show={delPicModalVisible}
                     context="确定删除文件吗 ?"

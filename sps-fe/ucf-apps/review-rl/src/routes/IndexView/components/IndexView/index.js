@@ -17,6 +17,7 @@ import {deepClone, Warning, getPageParam,success} from "utils";
 import 'ac-attachment/dist/ac-attachment.css';
 import './index.less'
 
+
 const {TabPane} = Tabs;
 const format = "YYYY-MM-DD";
 
@@ -24,6 +25,8 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            RevModalVisible:false,//审核通过弹框
+            DRevModalVisible:false,//审核不通过弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -33,6 +36,7 @@ export default class IndexView extends Component {
 
     }
 
+    
     componentDidMount() {
         this.loadPage();
     }
@@ -91,6 +95,20 @@ export default class IndexView extends Component {
      */
     onClickDel = (checkTable) => {
         this.setState({delModalVisible: true, checkTable});
+    }
+
+    /**
+     * 显示审核通过弹框
+     */
+    onClickRev = (checkTable) => {
+        this.setState({RevModalVisible: true, checkTable});
+    }
+
+    /**
+     * 显示审核不通过弹框
+     */
+    onClickDRev = (checkTable) => {
+        this.setState({DRevModalVisible: true, checkTable});
     }
 
     /**
@@ -183,6 +201,40 @@ export default class IndexView extends Component {
             flag: status,
             checkTable: type,
         });
+    }
+    /**
+     *审核通过操作
+     * @param {number} type 1.通过 2.取消
+     */
+    async reviewGoBack(type) {
+        //alert("111");
+        const {checkTable} = this.state; //获取审核的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({RevModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "rl") { // 主表
+                const {rlIndex} = this.props;
+                const record = list[rlIndex];
+                //alert("222");
+                await actions.masterDetailMany.reviewRl(record);
+            }
+        }
+    }
+    /**
+     *审核不通过操作
+     * @param {number} type 1.不通过 2.取消
+     */
+    async dreviewGoBack(type) {
+        const {checkTable} = this.state; //获取审核的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({DRevModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "rl") { // 主表
+                const {rlIndex} = this.props;
+                const record = list[rlIndex];
+                await actions.masterDetailMany.dreviewRl(record);
+            }
+        }
     }
     /**
      *删除确定操作
@@ -281,7 +333,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            RevModalVisible,DRevModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -316,6 +368,18 @@ export default class IndexView extends Component {
                             disabled={rlForbid}
                             onClick={() => _this.onShowMainModal("rl", 2)}
                         >详情</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={rlForbid}
+                            onClick={() => _this.onClickRev("rl")}
+                        >审核通过</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={rlForbid}
+                            onClick={() => _this.onClickDRev("rl")}
+                        >审核不通过</Button>
                         <Button
                             className="ml8"
                             role="delete"
@@ -381,6 +445,18 @@ export default class IndexView extends Component {
                     context="确定删除这条记录吗 ?"
                     confirmFn={() => _this.confirmGoBack(1)}
                     cancelFn={() => _this.confirmGoBack(2)}/>
+                    
+                <Alert
+                    show={RevModalVisible}
+                    context="确定审核通过这条申请吗 ?"
+                    confirmFn={() => _this.reviewGoBack(1)}
+                    cancelFn={() => _this.reviewGoBack(2)}/>
+                  
+               <Alert
+                    show={DRevModalVisible}
+                    context="确定审核不通过这条申请吗 ?"
+                    confirmFn={() => _this.dreviewGoBack(1)}
+                    cancelFn={() => _this.dreviewGoBack(2)}/>
 
                 <Alert
                     show={delPicModalVisible}

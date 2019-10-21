@@ -3,7 +3,7 @@ import request from "utils/request";
 
 //定义接口地址
 const URL = {
-    "SUBMIT_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/submit', // 提交主表
+    "SUBMIT_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/submitPr', // 提交主表
     "GET_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/list', // 获取主表
     "SAVE_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/insertSelective', // 保存主表
     "UPDATE_pr": `${GROBAL_HTTP_CTX}` + '/request/pr/updateSelective', // 更新主表
@@ -12,16 +12,20 @@ const URL = {
     "PRINTSERVER": '/print_service/print/preview',                                              // 打印
 }
 
+
 /**
- * 提交主列表
+ * 提交主表数据
  * @param {*} params
  */
-export const sunmitpr = (params) => {
+export const subpr = (params) => {
+    
+    alert("测试URL");
     return request(URL.SUBMIT_pr, {
         method: "post",
         data: params
     });
 }
+
 
 /**
  * 获取主列表
