@@ -1,11 +1,14 @@
 
--- drop table if EXISTS rejected;
-CREATE TABLE `rejected` (
+-- drop table if EXISTS pr;
+CREATE TABLE `pr` (
 `ID` VARCHAR(64) NOT NULL COMMENT '主键',
     PRIMARY KEY (`ID`),
-    `rj_no` VARCHAR(64) DEFAULT NULL COMMENT '退货单编号',
-    `qc_no` VARCHAR(64) DEFAULT NULL COMMENT '质检单编号',
-    `rjstate` VARCHAR(64) DEFAULT NULL COMMENT '退货状态',
+    `pr_no` VARCHAR(64) DEFAULT NULL COMMENT '申请单编号',
+    `pname` VARCHAR(64) DEFAULT NULL COMMENT '采购品名',
+    `pnum` VARCHAR(64) DEFAULT NULL COMMENT '采购数量',
+    `price` VARCHAR(64) DEFAULT NULL COMMENT '采购单价',
+    `ptime` VARCHAR(64) DEFAULT NULL COMMENT '申请时间',
+    `pstute` VARCHAR(64) DEFAULT NULL COMMENT '申请状态',
         `TENANT_ID` varchar(64) DEFAULT NULL,
         `DR` int(11) DEFAULT NULL COMMENT '是否删除',
         `TS` varchar(64) DEFAULT NULL COMMENT '时间戳',
@@ -15,8 +18,7 @@ CREATE TABLE `rejected` (
         `CREATE_USER` varchar(64) DEFAULT NULL COMMENT '创建人'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
-alter table rejected add unique(rj_no);
-alter table rejected add unique(qc_no);
+alter table pr add unique(pr_no);
 
 
 

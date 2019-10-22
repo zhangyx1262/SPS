@@ -142,6 +142,13 @@ if(typeof rowData !== 'undefined'){
             <Option value="">请选择</Option>
                 <Option value={ '0' }>待申请</Option>
                 <Option value={ '1' }>已申请</Option>
+                <Option value={ '2' }>已申请/审核已通过</Option>
+                <Option value={ '3' }>已申请/审核未通过</Option>
+                <Option value={ '4' }>已申请/已采购</Option>
+                <Option value={ '5' }>已申请/质检合格</Option>
+                <Option value={ '6' }>已申请/质检不合格</Option>
+                <Option value={ '7' }>已申请/已退货</Option>
+                <Option value={ '8' }>已申请/已入库</Option>
         </Select>
                               </FormItem>
                 </FormList>

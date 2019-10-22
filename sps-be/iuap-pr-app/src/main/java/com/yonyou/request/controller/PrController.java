@@ -9,9 +9,7 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
-import com.yonyou.review.dto.RlDTO;
-import com.yonyou.review.po.Rl;
-import com.yonyou.review.service.RlService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -28,7 +26,7 @@ import java.util.ArrayList;
 /**
 * 说明：申请单基础Controller——提供数据增(CREATE)、删(DELETE、改(UPDATE)、查(READ)等rest接口
 * @author  
-* @date 2019-9-12 16:23:41
+* @date 2019-10-21 21:36:41
 */
 @RestController("com.yonyou.request.controller.PrController")
 @RequestMapping(value = "/request/pr")
@@ -45,11 +43,6 @@ public class PrController extends BaseController{
         this.service = service;
     }
 
-
-
-
-    //手动创建审核单id
-    private int count=2;
     /**
     * 分页查询
     * @return 分页集合
@@ -89,39 +82,7 @@ public class PrController extends BaseController{
         }
     }
 
-    /**
-     * 提交申请
-     */
-    @RequestMapping(value = "/submitPr" , method = RequestMethod.POST)
-    @ResponseBody
-    public Object submitPr(@RequestBody List<Pr> listData){
-        //获取申请单id
-        Pr entity=listData.get(0);
-        String prId=entity.getId();
-        //获取申请单
-        Pr prentity=service.getAssoVo(prId).getEntity();
-        //修改申请状态
-        prentity.setPstute("1");
-        //保存修改
-        prentity=service.save(prentity,false,true);
-        PrDTO prDTO= new PrDTO();
-        BeanUtils.copyProperties(prentity,prDTO);
 
-        //新增审核单
-        Rl rlentity=new Rl();
-        //填写审核单的数据
-        rlentity.setId("审核"+prentity.getPr_no());
-        rlentity.setRl_no("审核"+prentity.getPr_no());
-        rlentity.setPr_no(prentity.getPr_no()+"/"+prentity.getId());
-        rlentity.setRstute("0");
-
-        rlentity = this.rlservice.save(rlentity,true,true);
-        RlDTO rldto = new RlDTO();
-        BeanUtils.copyProperties(rlentity,rldto);
-
-
-        return this.buildSuccess();
-    }
 
      /**
      * 主子表合并处理--主表单条查询
@@ -136,8 +97,6 @@ public class PrController extends BaseController{
         result.getDetailMsg().putAll(vo.getSublist());
         return  result;
     }
-
-
     /**
      * 主子表合并处理--主表单条保存
      * @param vo GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是子表数据

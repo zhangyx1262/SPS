@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * RPC 调用接口声明
  * @author  
- * @date 2019-9-12 16:23:41
+ * @date 2019-10-21 21:36:41
  */
 @RemoteCall("iuap-sps-server")
 public interface PrQueryService {
