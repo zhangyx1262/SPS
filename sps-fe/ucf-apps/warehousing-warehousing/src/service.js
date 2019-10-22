@@ -3,12 +3,26 @@ import request from "utils/request";
 
 //定义接口地址
 const URL = {
+    "Warehousing": `${GROBAL_HTTP_CTX}` + '/warehousing/warehousing/warehousing', // 入库
     "GET_warehousing": `${GROBAL_HTTP_CTX}` + '/warehousing/warehousing/list', // 获取主表
     "SAVE_warehousing": `${GROBAL_HTTP_CTX}` + '/warehousing/warehousing/insertSelective', // 保存主表
     "UPDATE_warehousing": `${GROBAL_HTTP_CTX}` + '/warehousing/warehousing/updateSelective', // 更新主表
     "DEL_warehousing": `${GROBAL_HTTP_CTX}` + '/warehousing/warehousing/deleteBatch', // 删除主表
     "GET_QUERYPRINTTEMPLATEALLOCATE": `/eiap-plus/appResAllocate/queryPrintTemplateAllocate`,  // 查询打印模板
     "PRINTSERVER": '/print_service/print/preview',                                              // 打印
+}
+
+/**
+ * 入库
+ * @param {*} params
+ */
+export const Warehousing = (params) => {
+    
+   // alert("测试URL");
+    return request(URL.Warehousing, {
+        method: "post",
+        data: params
+    });
 }
 
 /**

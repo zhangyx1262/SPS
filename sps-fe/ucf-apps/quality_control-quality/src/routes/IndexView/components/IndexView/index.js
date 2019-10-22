@@ -24,6 +24,8 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            OKModalVisible: false,//质检合格弹框
+            FalseModalVisible: false,//质检不合格弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -92,6 +94,21 @@ export default class IndexView extends Component {
     onClickDel = (checkTable) => {
         this.setState({delModalVisible: true, checkTable});
     }
+
+     /**
+     * 显示质检合格弹框
+     */
+    onClickOK = (checkTable) => {
+        this.setState({OKModalVisible: true, checkTable});
+    }
+
+     /**
+     * 显示质检不合格弹框
+     */
+    onClickFalse = (checkTable) => {
+        this.setState({FalseModalVisible: true, checkTable});
+    }
+
 
     /**
      *
@@ -184,6 +201,41 @@ export default class IndexView extends Component {
             checkTable: type,
         });
     }
+
+    /**
+     *质检合格
+     * @param {number} type 1.删除 2.取消
+     */
+    async okGoBack(type) {
+        const {checkTable} = this.state; //获取删除的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({OKModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "quality") { // 主表
+                const {qualityIndex} = this.props;
+                const record = list[qualityIndex];
+                await actions.masterDetailMany.qualityOK(record);
+            }
+        }
+    }
+
+    /**
+     *质检不合格
+     * @param {number} type 1.删除 2.取消
+     */
+    async falseGoBack(type) {
+        const {checkTable} = this.state; //获取删除的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({FalseModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "quality") { // 主表
+                const {qualityIndex} = this.props;
+                const record = list[qualityIndex];
+                await actions.masterDetailMany.qualityFalse(record);
+            }
+        }
+    }
+
     /**
      *删除确定操作
      * @param {number} type 1.删除 2.取消
@@ -281,7 +333,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            OKModalVisible,FalseModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -316,6 +368,18 @@ export default class IndexView extends Component {
                             disabled={qualityForbid}
                             onClick={() => _this.onShowMainModal("quality", 2)}
                         >详情</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={qualityForbid}
+                            onClick={() => _this.onClickOK("quality")}
+                        >质检合格</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={qualityForbid}
+                            onClick={() => _this.onClickFalse("quality")}
+                        >质检不合格</Button>
                         <Button
                             className="ml8"
                             role="delete"
@@ -376,6 +440,16 @@ export default class IndexView extends Component {
                     show={showLoading}
                     fullScreen={true}
                 />
+                <Alert
+                    show={OKModalVisible}
+                    context="确定提交质检合格吗 ?"
+                    confirmFn={() => _this.okGoBack(1)}
+                    cancelFn={() => _this.okGoBack(2)}/>
+                <Alert
+                    show={FalseModalVisible}
+                    context="确定提交质检不合格吗 ?"
+                    confirmFn={() => _this.falseGoBack(1)}
+                    cancelFn={() => _this.falseGoBack(2)}/>
                 <Alert
                     show={delModalVisible}
                     context="确定删除这条记录吗 ?"

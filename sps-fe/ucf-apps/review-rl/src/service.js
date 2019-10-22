@@ -19,7 +19,7 @@ const URL = {
  */
 export const reviewRl = (params) => {
     
-    alert("测试URL");
+   // alert("测试URL");
     return request(URL.REVIEW_rl, {
         method: "post",
         data: params

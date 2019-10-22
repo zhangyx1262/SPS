@@ -3,12 +3,26 @@ import request from "utils/request";
 
 //定义接口地址
 const URL = {
+    "ORDER": `${GROBAL_HTTP_CTX}` + '/order/req_order/order', // 采购完成
     "GET_req_order": `${GROBAL_HTTP_CTX}` + '/order/req_order/list', // 获取主表
     "SAVE_req_order": `${GROBAL_HTTP_CTX}` + '/order/req_order/insertSelective', // 保存主表
     "UPDATE_req_order": `${GROBAL_HTTP_CTX}` + '/order/req_order/updateSelective', // 更新主表
     "DEL_req_order": `${GROBAL_HTTP_CTX}` + '/order/req_order/deleteBatch', // 删除主表
     "GET_QUERYPRINTTEMPLATEALLOCATE": `/eiap-plus/appResAllocate/queryPrintTemplateAllocate`,  // 查询打印模板
     "PRINTSERVER": '/print_service/print/preview',                                              // 打印
+}
+
+/**
+ * 采购完成
+ * @param {*} params
+ */
+export const order = (params) => {
+    
+    //alert("测试URL");
+    return request(URL.ORDER, {
+        method: "post",
+        data: params
+    });
 }
 
 /**

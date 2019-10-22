@@ -24,6 +24,7 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            WHModalVisible: false,//入库弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -85,6 +86,12 @@ export default class IndexView extends Component {
         actions.masterDetailMany.updateState({tabKey});
     }
 
+    /**
+     * 显示入库弹框
+     */
+    onClickwh = (checkTable) => {
+        this.setState({WHModalVisible: true, checkTable});
+    }
 
     /**
      * 显示删除弹框
@@ -184,6 +191,23 @@ export default class IndexView extends Component {
             checkTable: type,
         });
     }
+  
+    /**
+     *入库确定操作
+     * @param {number} type 1.删除 2.取消
+     */
+    async whGoBack(type) {
+        const {checkTable} = this.state; //获取删除的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({WHModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "warehousing") { // 主表
+                const {warehousingIndex} = this.props;
+                const record = list[warehousingIndex];
+                await actions.masterDetailMany.Warehousing(record);
+            }
+        }
+    }
     /**
      *删除确定操作
      * @param {number} type 1.删除 2.取消
@@ -281,7 +305,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            WHModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -316,6 +340,12 @@ export default class IndexView extends Component {
                             disabled={warehousingForbid}
                             onClick={() => _this.onShowMainModal("warehousing", 2)}
                         >详情</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={warehousingForbid}
+                            onClick={() => _this.onClickwh("warehousing")}
+                        >入库</Button>
                         <Button
                             className="ml8"
                             role="delete"
@@ -376,6 +406,12 @@ export default class IndexView extends Component {
                     show={showLoading}
                     fullScreen={true}
                 />
+                
+                <Alert
+                    show={WHModalVisible}
+                    context="确定入库吗 ?"
+                    confirmFn={() => _this.whGoBack(1)}
+                    cancelFn={() => _this.whGoBack(2)}/>
                 <Alert
                     show={delModalVisible}
                     context="确定删除这条记录吗 ?"

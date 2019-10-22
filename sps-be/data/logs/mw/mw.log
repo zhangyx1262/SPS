@@ -1,15 +1,472 @@
-2019-10-18 15:51:40.029 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_246_1571385098780] [demo_246_1571385098780] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.7194409374309827] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&582ms 
-2019-10-18 19:56:42.225 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_258_1571399801058] [demo_258_1571399801058] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.05457497687675117] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&451ms 
-2019-10-18 19:57:26.089 ERROR [http-nio-9688-exec-7] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_260_1571399845931] [demo_260_1571399845931] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.0066471886262409186] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&155ms 
-2019-10-18 19:57:37.032 ERROR [http-nio-9688-exec-6] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_259_1571399856859] [demo_259_1571399856859] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.03520172341154759] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&130ms 
-2019-10-18 19:58:06.502 ERROR [http-nio-9688-exec-2] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_255_1571399886338] [demo_255_1571399886338] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.7799051920125364] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&162ms 
-2019-10-18 19:58:07.996 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_263_1571399886345] [demo_263_1571399886345] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/insertSelective] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.insertSelective:INSERT INTO pr ( tenant_id, pr_no, pnum, create_time, pname, dr, price, last_modify_user, create_user, id, pstute, last_modified, ptime, ts ) VALUES ( '1', '1018', '10', '2019-10-18', '计算机', 0, '3000', '1', '1', '1630b80d14244b2f80de34b08c40baf7', '0', '2019-10-18', '2019-10-18T11:58:03.896Z', DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&124ms 
-2019-10-18 19:58:08.071 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_263_1571399886345] [demo_263_1571399886345] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/insertSelective] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '1630b80d14244b2f80de34b08c40baf7')&71ms 
-2019-10-18 19:58:08.577 ERROR [http-nio-9688-exec-8] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_261_1571399888468] [demo_261_1571399888468] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.8102424293931141] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&107ms 
-2019-10-18 20:40:08.642 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_257_1571402361653] [demo_257_1571402361653] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '1630b80d14244b2f80de34b08c40baf7')&96ms 
-2019-10-18 20:40:43.460 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_257_1571402361653] [demo_257_1571402361653] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.updateSelective:UPDATE pr SET tenant_id = '1', pr_no = '1018', pnum = '10', create_time = '2019-10-18', pname = '计算机', dr = 0, price = '3000', last_modify_user = '1', create_user = '1', pstute = '1', last_modified = '2019-10-18', ptime = '2019-10-18T11:58:03.896Z', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '1630b80d14244b2f80de34b08c40baf7' AND ts = '2019-10-18 19:58:02.000'&201ms 
-2019-10-18 20:40:43.550 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_257_1571402361653] [demo_257_1571402361653] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.getById:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE id = '1630b80d14244b2f80de34b08c40baf7'&85ms 
-2019-10-18 20:42:12.860 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_257_1571402361653] [demo_257_1571402361653] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.insertSelective:INSERT INTO rl ( rstute, tenant_id, pr_no, last_modify_user, id, last_modified, dr, rl_no, ts ) VALUES ( '0', '1', '1018', '1', 'rl1018', '2019-10-18', 0, 'rl1018', DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&243ms 
-2019-10-18 20:42:12.946 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_257_1571402361653] [demo_257_1571402361653] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.list:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 AND (id = 'rl1018')&81ms 
-2019-10-18 20:43:27.820 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_256_1571402607623] [demo_256_1571402607623] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.304623635666571] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&194ms 
-2019-10-18 20:43:36.524 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_254_1571402616355] [demo_254_1571402616355] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.5996081443837367] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&167ms 
+2019-10-22 22:38:34.509 ERROR [http-nio-9688-exec-7] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_204_1571755111657] [demo_204_1571755111657] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.9616584213342292] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&1063ms 
+2019-10-22 22:38:54.360 ERROR [http-nio-9688-exec-2] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_199_1571755134045] [demo_199_1571755134045] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.8881764389765048] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&134ms 
+2019-10-22 22:39:12.899 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571755152631] [demo_201_1571755152631] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/list] [pageIndex=0&pageSize=5&r=0.9648849373853499] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.listPage:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 LIMIT 0, 5&143ms 
+2019-10-22 22:39:51.125 ERROR [http-nio-9688-exec-6] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_203_1571755190918] [demo_203_1571755190918] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/list] [pageIndex=0&pageSize=5&r=0.8349286589499267] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.listPage:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE dr = 0 LIMIT 0, 5&153ms 
+2019-10-22 22:40:39.557 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571755239169] [demo_207_1571755239169] [] [] [] [http://127.0.0.1:9688/sps-be/rejected/rejected/list] [pageIndex=0&pageSize=5&r=0.37025794583587324] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.rejected.dao.RejectedMapper.listPage:SELECT rj_no,tenant_id,create_time,last_modify_user,qc_no,create_user,rjstate,id,last_modified,dr,ts FROM rejected WHERE dr = 0 LIMIT 0, 5&148ms 
+2019-10-22 22:41:06.139 ERROR [http-nio-9688-exec-8] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_205_1571755265836] [demo_205_1571755265836] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/list] [pageIndex=0&pageSize=5&r=0.2821738725030041] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.listPage:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE dr = 0 LIMIT 0, 5&124ms 
+2019-10-22 22:49:23.228 ERROR [http-nio-9688-exec-9] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_206_1571755763068] [demo_206_1571755763068] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.556844691592195] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&158ms 
+2019-10-22 22:49:23.278 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571755763114] [demo_200_1571755763114] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.2010794731294976] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&160ms 
+2019-10-22 22:49:28.360 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571755768192] [demo_202_1571755768192] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.1673815905306042] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&164ms 
+2019-10-22 22:51:28.695 ERROR [http-nio-9688-exec-9] [c.y.i.u.c.e.CommonExceptionHandler] [demo_206_1571755763068] [demo_206_1571755763068] [] [] [1001001000001] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.556844691592195] [iuap,iuap-sps-server,demo,1,1,,] - 出现异常啦 com.yonyou.iuap.ucf.common.exception.BusinessException: 程序员开小差了，请您稍后再试。
+	at com.yonyou.iuap.ucf.core.exception.CommonExceptionHandler.handleThrowable(CommonExceptionHandler.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:408)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:139)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:79)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1297)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1109)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.yonyou.cloud.filter.ZoneFilter.doFilter(ZoneFilter.java:89)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at ch.qos.logback.classic.helpers.MDCInsertingServletFilter.doFilter(MDCInsertingServletFilter.java:49)
+	at com.yonyou.iuap.ucf.log.filter.MDCLogFilter.doFilter(MDCLogFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.catalina.connector.ClientAbortException: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:299)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:262)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:118)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1100)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:915)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:287)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:103)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:180)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:119)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	... 66 common frames omitted
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:65)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:471)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:134)
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:105)
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:144)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1223)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:748)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flushBlocking(SocketWrapperBase.java:701)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flush(SocketWrapperBase.java:691)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.flush(Http11OutputBuffer.java:553)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.flush(ChunkedOutputFilter.java:157)
+	at org.apache.coyote.http11.Http11OutputBuffer.flush(Http11OutputBuffer.java:216)
+	at org.apache.coyote.http11.Http11Processor.flush(Http11Processor.java:1149)
+	at org.apache.coyote.AbstractProcessor.action(AbstractProcessor.java:394)
+	at org.apache.coyote.Response.action(Response.java:209)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:295)
+	... 80 common frames omitted
+
+2019-10-22 22:51:36.870 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571755763106] [demo_198_1571755763106] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/insertSelective] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.insertSelective:INSERT INTO pr ( tenant_id, pr_no, pnum, create_time, pname, dr, price, last_modify_user, create_user, id, pstute, last_modified, ptime, ts ) VALUES ( '1', '1022', '15', '2019-10-22', '手机', 0, '2000', '1', '1', '4acf695f26ba4ff48ad40987933dac32', '0', '2019-10-22', '2019-10-22T14:41:57.815Z', DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&190ms 
+2019-10-22 22:51:37.620 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571755763106] [demo_198_1571755763106] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/insertSelective] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '4acf695f26ba4ff48ad40987933dac32')&746ms 
+2019-10-22 22:51:41.178 ERROR [http-nio-9688-exec-1] [c.y.i.u.c.e.CommonExceptionHandler] [demo_198_1571755763106] [demo_198_1571755763106] [] [] [1001001000001] [http://127.0.0.1:9688/sps-be/request/pr/insertSelective] [] [iuap,iuap-sps-server,demo,1,1,,] - 出现异常啦 com.yonyou.iuap.ucf.common.exception.BusinessException: 程序员开小差了，请您稍后再试。
+	at com.yonyou.iuap.ucf.core.exception.CommonExceptionHandler.handleThrowable(CommonExceptionHandler.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:408)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:139)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:79)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1297)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1109)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.yonyou.cloud.filter.ZoneFilter.doFilter(ZoneFilter.java:89)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at ch.qos.logback.classic.helpers.MDCInsertingServletFilter.doFilter(MDCInsertingServletFilter.java:49)
+	at com.yonyou.iuap.ucf.log.filter.MDCLogFilter.doFilter(MDCLogFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.catalina.connector.ClientAbortException: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:299)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:262)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:118)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1100)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:915)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:287)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:103)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:180)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:119)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	... 66 common frames omitted
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:65)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:471)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:134)
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:105)
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:144)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1223)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:748)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flushBlocking(SocketWrapperBase.java:701)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flush(SocketWrapperBase.java:691)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.flush(Http11OutputBuffer.java:553)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.flush(ChunkedOutputFilter.java:157)
+	at org.apache.coyote.http11.Http11OutputBuffer.flush(Http11OutputBuffer.java:216)
+	at org.apache.coyote.http11.Http11Processor.flush(Http11Processor.java:1149)
+	at org.apache.coyote.AbstractProcessor.action(AbstractProcessor.java:394)
+	at org.apache.coyote.Response.action(Response.java:209)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:295)
+	... 80 common frames omitted
+
+2019-10-22 22:55:16.211 ERROR [http-nio-9688-exec-10] [c.y.i.u.c.e.CommonExceptionHandler] [demo_207_1571756115130] [demo_207_1571756115130] [] [] [1001001000001] [http://127.0.0.1:9688/sps-be/request/pr/insertSelective] [] [iuap,iuap-sps-server,demo,1,1,,] - 出现异常啦 com.yonyou.iuap.ucf.common.exception.BusinessException: 程序员开小差了，请您稍后再试。
+	at com.yonyou.iuap.ucf.core.exception.CommonExceptionHandler.handleThrowable(CommonExceptionHandler.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:408)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:139)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:79)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1297)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1109)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.yonyou.cloud.filter.ZoneFilter.doFilter(ZoneFilter.java:89)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at ch.qos.logback.classic.helpers.MDCInsertingServletFilter.doFilter(MDCInsertingServletFilter.java:49)
+	at com.yonyou.iuap.ucf.log.filter.MDCLogFilter.doFilter(MDCLogFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1022' for key 'pr_no'
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: INSERT INTO pr (   tenant_id,  pr_no,  pnum,  create_time,  pname,  dr,  price,  last_modify_user,  create_user,  id,  pstute,  last_modified,  ptime,  ts   ) VALUES (   ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' )   )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1022' for key 'pr_no'
+; Duplicate entry '1022' for key 'pr_no'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1022' for key 'pr_no'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:242)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy140.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at com.yonyou.iuap.ucf.dao.mybatis.UcfMapperProxy.invoke(UcfMapperProxy.java:57)
+	at com.sun.proxy.$Proxy158.insertSelective(Unknown Source)
+	at com.yonyou.iuap.baseservice.intg.service.GenericUcfService.executeInsert(GenericUcfService.java:308)
+	at com.yonyou.iuap.baseservice.intg.service.GenericUcfService.save(GenericUcfService.java:279)
+	at com.yonyou.iuap.baseservice.intg.service.GenericUcfService$$FastClassBySpringCGLIB$$a592c808.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.yonyou.request.service.PrService$$EnhancerBySpringCGLIB$$bdd288d1.save(<generated>)
+	at com.yonyou.request.controller.PrController.insertSelective(PrController.java:186)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	... 66 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1022' for key 'pr_no'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:970)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:387)
+	at sun.reflect.GeneratedMethodAccessor240.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.tomcat.jdbc.pool.StatementFacade$StatementProxy.invoke(StatementFacade.java:114)
+	at com.sun.proxy.$Proxy195.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at com.yonyou.iuap.ucf.dao.mybatis.ext.UcfQueryInterceptor$PaginationExecutor.update(UcfQueryInterceptor.java:211)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63)
+	at com.sun.proxy.$Proxy194.update(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.yonyou.iuap.ucf.log.mw.filter.MDCLogMybatisInterceptor.intercept(MDCLogMybatisInterceptor.java:44)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy194.update(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 89 common frames omitted
+
+2019-10-22 22:59:44.349 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756384175] [demo_202_1571756384175] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.8359456821605411] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&173ms 
+2019-10-22 23:01:06.420 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756465758] [demo_202_1571756465758] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '4acf695f26ba4ff48ad40987933dac32')&70ms 
+2019-10-22 23:01:06.694 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756465758] [demo_202_1571756465758] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.updateSelective:UPDATE pr SET tenant_id = '1', pr_no = '1022', pnum = '15', create_time = '2019-10-22', pname = '手机', dr = 0, price = '2000', last_modify_user = '1', create_user = '1', pstute = '1', last_modified = '2019-10-22', ptime = '2019-10-22T14:41:57.815Z', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '4acf695f26ba4ff48ad40987933dac32' AND ts = '2019-10-22 22:51:36.000'&150ms 
+2019-10-22 23:01:06.751 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756465758] [demo_202_1571756465758] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.getById:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE id = '4acf695f26ba4ff48ad40987933dac32'&56ms 
+2019-10-22 23:01:07.013 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756465758] [demo_202_1571756465758] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.insertSelective:INSERT INTO rl ( rstute, tenant_id, pr_no, last_modify_user, id, last_modified, dr, rl_no, ts ) VALUES ( '0', '1', '1022/4acf695f26ba4ff48ad40987933dac32', '1', '审核1022', '2019-10-22', 0, '审核1022', DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&122ms 
+2019-10-22 23:01:07.065 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756465758] [demo_202_1571756465758] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/submitPr] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.list:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 AND (id = '审核1022')&50ms 
+2019-10-22 23:01:07.317 ERROR [http-nio-9688-exec-9] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_206_1571756467195] [demo_206_1571756467195] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.39074306992004737] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&120ms 
+2019-10-22 23:01:17.627 ERROR [http-nio-9688-exec-7] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_204_1571756477436] [demo_204_1571756477436] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.7253905046042819] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&187ms 
+2019-10-22 23:01:37.665 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.list:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 AND (id = '审核1022')&47ms 
+2019-10-22 23:01:37.928 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.updateSelective:UPDATE rl SET rstute = '1', tenant_id = '1', pr_no = '1022/4acf695f26ba4ff48ad40987933dac32', last_modify_user = '1', last_modified = '2019-10-22', dr = 0, rl_no = '审核1022', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '审核1022' AND ts = '2019-10-22 23:01:06.000'&105ms 
+2019-10-22 23:01:37.984 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.getById:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE id = '审核1022'&55ms 
+2019-10-22 23:01:38.194 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.insertSelective:INSERT INTO req_order ( tenant_id, last_modify_user, ro_no, id, postate, last_modified, dr, rl_no, ts ) VALUES ( '1', '1', '采购1022', '采购1022', '0', '2019-10-22', 0, '审核1022', DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&116ms 
+2019-10-22 23:01:38.255 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.list:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 AND (id = '采购1022')&61ms 
+2019-10-22 23:01:38.546 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '4acf695f26ba4ff48ad40987933dac32')&58ms 
+2019-10-22 23:01:38.773 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.updateSelective:UPDATE pr SET tenant_id = '1', pr_no = '1022', pnum = '15', create_time = '2019-10-22', pname = '手机', dr = 0, price = '2000', last_modify_user = '1', create_user = '1', pstute = '2', last_modified = '2019-10-22', ptime = '2019-10-22T14:41:57.815Z', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '4acf695f26ba4ff48ad40987933dac32' AND ts = '2019-10-22 23:01:06.000'&103ms 
+2019-10-22 23:01:38.819 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756497492] [demo_198_1571756497492] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/reviewRl] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.getById:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE id = '4acf695f26ba4ff48ad40987933dac32'&44ms 
+2019-10-22 23:01:39.027 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756498915] [demo_201_1571756498915] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.5373680655723823] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&110ms 
+2019-10-22 23:01:55.746 ERROR [http-nio-9688-exec-2] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_199_1571756515537] [demo_199_1571756515537] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/list] [pageIndex=0&pageSize=5&r=0.2375649257033876] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.listPage:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 LIMIT 0, 5&182ms 
+2019-10-22 23:02:16.034 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.list:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 AND (id = '采购1022')&61ms 
+2019-10-22 23:02:16.398 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.updateSelective:UPDATE req_order SET tenant_id = '1', last_modify_user = '1', ro_no = '采购1022', postate = '1', last_modified = '2019-10-22', dr = 0, rl_no = '审核1022', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '采购1022' AND ts = '2019-10-22 23:01:37.000'&213ms 
+2019-10-22 23:02:16.462 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.getById:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE id = '采购1022'&63ms 
+2019-10-22 23:02:16.647 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.insertSelective:INSERT INTO quality ( qc_state, tenant_id, last_modify_user, qc_no, id, last_modified, dr, po_no, ts ) VALUES ( '0', '1', '1', '质检1022', '质检1022', '2019-10-22', 0, '采购1022', DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&129ms 
+2019-10-22 23:02:16.708 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.list:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE dr = 0 AND (id = '质检1022')&60ms 
+2019-10-22 23:02:17.230 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.list:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 AND (id = '审核1022')&54ms 
+2019-10-22 23:02:17.444 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '4acf695f26ba4ff48ad40987933dac32')&56ms 
+2019-10-22 23:02:17.686 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.updateSelective:UPDATE pr SET tenant_id = '1', pr_no = '1022', pnum = '15', create_time = '2019-10-22', pname = '手机', dr = 0, price = '2000', last_modify_user = '1', create_user = '1', pstute = '4', last_modified = '2019-10-22', ptime = '2019-10-22T14:41:57.815Z', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '4acf695f26ba4ff48ad40987933dac32' AND ts = '2019-10-22 23:01:38.000'&114ms 
+2019-10-22 23:02:17.742 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571756535848] [demo_207_1571756535848] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/order] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.getById:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE id = '4acf695f26ba4ff48ad40987933dac32'&55ms 
+2019-10-22 23:02:17.977 ERROR [http-nio-9688-exec-6] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_203_1571756537857] [demo_203_1571756537857] [] [] [] [http://127.0.0.1:9688/sps-be/order/req_order/list] [pageIndex=0&pageSize=5&r=0.4109770808675812] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.listPage:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 LIMIT 0, 5&119ms 
+2019-10-22 23:02:26.565 ERROR [http-nio-9688-exec-8] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_205_1571756546376] [demo_205_1571756546376] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/list] [pageIndex=0&pageSize=5&r=0.4710827570661229] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.listPage:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE dr = 0 LIMIT 0, 5&166ms 
+2019-10-22 23:02:40.751 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.list:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE dr = 0 AND (id = '质检1022')&47ms 
+2019-10-22 23:02:40.991 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.updateSelective:UPDATE quality SET qc_state = '1', tenant_id = '1', last_modify_user = '1', qc_no = '质检1022', last_modified = '2019-10-22', dr = 0, po_no = '采购1022', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '质检1022' AND ts = '2019-10-22 23:02:16.000'&107ms 
+2019-10-22 23:02:41.053 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.getById:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE id = '质检1022'&62ms 
+2019-10-22 23:02:41.255 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.insertSelective:INSERT INTO warehousing ( tenant_id, wh_no, last_modify_user, qc_no, whstate, id, last_modified, dr, ts ) VALUES ( '1', '入库1022', '1', '质检1022', '0', '入库1022', '2019-10-22', 0, DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) )&117ms 
+2019-10-22 23:02:41.307 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.list:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE dr = 0 AND (id = '入库1022')&51ms 
+2019-10-22 23:02:41.614 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.list:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 AND (id = '采购1022')&58ms 
+2019-10-22 23:02:41.853 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.list:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 AND (id = '审核1022')&79ms 
+2019-10-22 23:02:42.117 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '4acf695f26ba4ff48ad40987933dac32')&60ms 
+2019-10-22 23:02:42.401 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.updateSelective:UPDATE pr SET tenant_id = '1', pr_no = '1022', pnum = '15', create_time = '2019-10-22', pname = '手机', dr = 0, price = '2000', last_modify_user = '1', create_user = '1', pstute = '5', last_modified = '2019-10-22', ptime = '2019-10-22T14:41:57.815Z', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '4acf695f26ba4ff48ad40987933dac32' AND ts = '2019-10-22 23:02:17.000'&135ms 
+2019-10-22 23:02:42.486 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571756560591] [demo_200_1571756560591] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/qualityOK] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.getById:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE id = '4acf695f26ba4ff48ad40987933dac32'&84ms 
+2019-10-22 23:02:42.730 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571756562598] [demo_202_1571756562598] [] [] [] [http://127.0.0.1:9688/sps-be/quality_control/quality/list] [pageIndex=0&pageSize=5&r=0.7783073524156783] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.listPage:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE dr = 0 LIMIT 0, 5&129ms 
+2019-10-22 23:02:55.837 ERROR [http-nio-9688-exec-9] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_206_1571756575511] [demo_206_1571756575511] [] [] [] [http://127.0.0.1:9688/sps-be/rejected/rejected/list] [pageIndex=0&pageSize=5&r=0.4270248794915379] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.rejected.dao.RejectedMapper.listPage:SELECT rj_no,tenant_id,create_time,last_modify_user,qc_no,create_user,rjstate,id,last_modified,dr,ts FROM rejected WHERE dr = 0 LIMIT 0, 5&171ms 
+2019-10-22 23:03:08.945 ERROR [http-nio-9688-exec-7] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_204_1571756588779] [demo_204_1571756588779] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/list] [pageIndex=0&pageSize=5&r=0.3385257142784559] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.listPage:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE dr = 0 LIMIT 0, 5&155ms 
+2019-10-22 23:03:42.681 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.list:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE dr = 0 AND (id = '入库1022')&43ms 
+2019-10-22 23:03:42.700 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756622505] [demo_198_1571756622505] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.list:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE dr = 0 AND (id = '入库1022')&59ms 
+2019-10-22 23:03:42.918 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.updateSelective:UPDATE warehousing SET tenant_id = '1', wh_no = '入库1022', last_modify_user = '1', qc_no = '质检1022', whstate = '1', last_modified = '2019-10-22', dr = 0, ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '入库1022' AND ts = '2019-10-22 23:02:40.000'&106ms 
+2019-10-22 23:03:42.957 ERROR [http-nio-9688-exec-1] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_198_1571756622505] [demo_198_1571756622505] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.updateSelective:UPDATE warehousing SET tenant_id = '1', wh_no = '入库1022', last_modify_user = '1', qc_no = '质检1022', whstate = '1', last_modified = '2019-10-22', dr = 0, ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '入库1022' AND ts = '2019-10-22 23:02:40.000'&137ms 
+2019-10-22 23:03:42.976 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.getById:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE id = '入库1022'&57ms 
+2019-10-22 23:03:43.062 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.quality.dao.QualityMapper.list:SELECT qc_state,tenant_id,create_time,last_modify_user,qc_no,create_user,id,last_modified,dr,po_no,ts FROM quality WHERE dr = 0 AND (id = '质检1022')&45ms 
+2019-10-22 23:03:43.283 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.order.dao.Req_orderMapper.list:SELECT tenant_id,create_time,last_modify_user,ro_no,create_user,id,postate,last_modified,dr,rl_no,ts FROM req_order WHERE dr = 0 AND (id = '采购1022')&61ms 
+2019-10-22 23:03:43.507 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.list:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 AND (id = '审核1022')&51ms 
+2019-10-22 23:03:43.746 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.list:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 AND (id = '4acf695f26ba4ff48ad40987933dac32')&55ms 
+2019-10-22 23:03:44.036 ERROR [http-nio-9688-exec-1] [c.y.i.u.c.e.CommonExceptionHandler] [demo_198_1571756622505] [demo_198_1571756622505] [] [] [1001001011004] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - 出现异常啦：更新保存数据出错，更新记录数=0，异常编码：1001001011004，异常发生地：	at com.yonyou.iuap.baseservice.intg.service.GenericUcfService.executeUpdate(GenericUcfService.java:354) 
+2019-10-22 23:03:44.106 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.updateSelective:UPDATE pr SET tenant_id = '1', pr_no = '1022', pnum = '15', create_time = '2019-10-22', pname = '手机', dr = 0, price = '2000', last_modify_user = '1', create_user = '1', pstute = '8', last_modified = '2019-10-22', ptime = '2019-10-22T14:41:57.815Z', ts = DATE_FORMAT(convert_tz(utc_timestamp(), '+00:00', '+08:00'),'%Y-%m-%d %T.000' ) WHERE id = '4acf695f26ba4ff48ad40987933dac32' AND ts = '2019-10-22 23:02:41.000'&215ms 
+2019-10-22 23:03:44.169 ERROR [http-nio-9688-exec-4] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_201_1571756622552] [demo_201_1571756622552] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/warehousing] [] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.getById:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE id = '4acf695f26ba4ff48ad40987933dac32'&63ms 
+2019-10-22 23:03:44.945 ERROR [http-nio-9688-exec-2] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_199_1571756624834] [demo_199_1571756624834] [] [] [] [http://127.0.0.1:9688/sps-be/warehousing/warehousing/list] [pageIndex=0&pageSize=5&r=0.1287237424528771] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.warehousing.dao.WarehousingMapper.listPage:SELECT tenant_id,wh_no,create_time,last_modify_user,qc_no,whstate,create_user,id,last_modified,dr,ts FROM warehousing WHERE dr = 0 LIMIT 0, 5&108ms 
+2019-10-22 23:14:03.983 ERROR [http-nio-9688-exec-10] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_207_1571757243804] [demo_207_1571757243804] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.8000379952092589] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&174ms 
+2019-10-22 23:15:10.568 ERROR [http-nio-9688-exec-6] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_203_1571757310409] [demo_203_1571757310409] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.5349595193694716] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&157ms 
+2019-10-22 23:17:57.772 ERROR [http-nio-9688-exec-8] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_205_1571757477633] [demo_205_1571757477633] [] [] [] [http://127.0.0.1:9688/sps-be/request/pr/list] [pageIndex=0&pageSize=5&r=0.6659399431511572] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.request.dao.PrMapper.listPage:SELECT tenant_id,pr_no,pnum,create_time,pname,dr,price,last_modify_user,create_user,id,pstute,last_modified,ptime,ts FROM pr WHERE dr = 0 LIMIT 0, 5&137ms 
+2019-10-22 23:23:58.947 ERROR [http-nio-9688-exec-3] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_200_1571757838808] [demo_200_1571757838808] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.9077170721893348] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&137ms 
+2019-10-22 23:24:49.963 ERROR [http-nio-9688-exec-5] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_202_1571757889785] [demo_202_1571757889785] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.8500644527542263] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&172ms 
+2019-10-22 23:25:39.840 ERROR [http-nio-9688-exec-9] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_206_1571757939696] [demo_206_1571757939696] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.9521705893804966] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&142ms 
+2019-10-22 23:30:11.616 ERROR [http-nio-9688-exec-7] [c.y.i.u.l.m.f.MDCLogMybatisInterceptor] [demo_204_1571758211450] [demo_204_1571758211450] [] [] [] [http://127.0.0.1:9688/sps-be/review/rl/list] [pageIndex=0&pageSize=5&r=0.7907594487212599] [iuap,iuap-sps-server,demo,1,1,,] - DB Signature&com.yonyou.review.dao.RlMapper.listPage:SELECT rstute,tenant_id,pr_no,create_time,last_modify_user,create_user,id,last_modified,dr,rl_no,ts FROM rl WHERE dr = 0 LIMIT 0, 5&164ms 

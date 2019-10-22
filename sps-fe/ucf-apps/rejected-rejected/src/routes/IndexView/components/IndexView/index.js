@@ -24,6 +24,7 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            rejectModalVisible: false,//退货成功弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -91,6 +92,13 @@ export default class IndexView extends Component {
      */
     onClickDel = (checkTable) => {
         this.setState({delModalVisible: true, checkTable});
+    }
+
+    /**
+     * 显示退货弹框
+     */
+    onClickreject = (checkTable) => {
+        this.setState({rejectModalVisible: true, checkTable});
     }
 
     /**
@@ -184,6 +192,24 @@ export default class IndexView extends Component {
             checkTable: type,
         });
     }
+
+    /**
+     *退货确定操作
+     * @param {number} type 1.删除 2.取消
+     */
+    async rejectGoBack(type) {
+        const {checkTable} = this.state; //获取删除的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({rejectModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "rejected") { // 主表
+                const {rejectedIndex} = this.props;
+                const record = list[rejectedIndex];
+                await actions.masterDetailMany.reject(record);
+            }
+        }
+    }
+
     /**
      *删除确定操作
      * @param {number} type 1.删除 2.取消
@@ -281,7 +307,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            rejectModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -316,6 +342,12 @@ export default class IndexView extends Component {
                             disabled={rejectedForbid}
                             onClick={() => _this.onShowMainModal("rejected", 2)}
                         >详情</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={rejectedForbid}
+                            onClick={() => _this.onClickreject("rejected")}
+                        >退货</Button>
                         <Button
                             className="ml8"
                             role="delete"
@@ -376,6 +408,12 @@ export default class IndexView extends Component {
                     show={showLoading}
                     fullScreen={true}
                 />
+               
+                <Alert
+                    show={rejectModalVisible}
+                    context="确定退货吗 ?"
+                    confirmFn={() => _this.rejectGoBack(1)}
+                    cancelFn={() => _this.rejectGoBack(2)}/>
                 <Alert
                     show={delModalVisible}
                     context="确定删除这条记录吗 ?"

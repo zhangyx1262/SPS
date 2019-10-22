@@ -112,6 +112,23 @@ export default {
             actions.masterDetailMany.updateState({showLoading: false});
         },
         /**
+         * 入库
+         * @param {*} param
+         * @param {*} getState
+         */
+        async Warehousing(param, getState) {
+            const {id} = param;
+            const {result}=processData(await api.Warehousing([{id}]), '入库成功');
+            const {status}=result;
+            if(status==='success'){
+                // 获取表pageSize;
+                const {warehousingObj} = getState().masterDetailMany;
+                const {pageSize} = warehousingObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+        },
+        /**
          * 删除主表数据
          * @param {*} param
          * @param {*} getState

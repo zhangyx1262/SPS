@@ -123,16 +123,26 @@ public class RlController extends BaseController{
         RlDTO rlDTO= new RlDTO();
         BeanUtils.copyProperties(rlentity,rlDTO);
 
+        String prno=rlentity.getPr_no().substring(0,rlentity.getPr_no().indexOf("/"));
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+
         //新增采购订单
         Req_order odentity=new Req_order();
-        odentity.setId("采购"+rlentity.getPr_no());
-        odentity.setRo_no("采购"+rlentity.getPr_no());
+        odentity.setId("采购"+prno);
+        odentity.setRo_no("采购"+prno);
         odentity.setRl_no(rlentity.getRl_no());
         odentity.setPostate("0");
 
         odentity = this.orderservice.save(odentity,true,true);
         Req_orderDTO oddto = new Req_orderDTO();
         BeanUtils.copyProperties(odentity,oddto);
+
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("2");//已申请/审核通过
+        prentity=this.prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
 
         return this.buildSuccess();
     }
@@ -155,14 +165,11 @@ public class RlController extends BaseController{
         RlDTO rlDTO= new RlDTO();
         BeanUtils.copyProperties(rlentity,rlDTO);
 
-        String prNo=rlentity.getPr_no();
-        String prid=prNo.substring(prNo.indexOf("/")+1);
-        //获取申请单
-        Pr prentity=prService.getAssoVo(prid).getEntity();
-        //修改申请状态
-
-        //保存修改
-        prentity=prService.save(prentity,false,true);
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("3");//已申请/审核不通过
+        prentity=this.prService.save(prentity,false,true);
         PrDTO prDTO= new PrDTO();
         BeanUtils.copyProperties(prentity,prDTO);
 

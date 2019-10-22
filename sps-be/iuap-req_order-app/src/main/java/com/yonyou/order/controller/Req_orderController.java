@@ -12,6 +12,11 @@ import com.yonyou.iuap.ucf.dao.support.UcfPage;
 import com.yonyou.quality.dto.QualityDTO;
 import com.yonyou.quality.po.Quality;
 import com.yonyou.quality.service.QualityService;
+import com.yonyou.request.dto.PrDTO;
+import com.yonyou.request.po.Pr;
+import com.yonyou.request.service.PrService;
+import com.yonyou.review.po.Rl;
+import com.yonyou.review.service.RlService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -40,6 +45,10 @@ public class Req_orderController extends BaseController{
 
     @Autowired
     private QualityService qualityService;
+    @Autowired
+    private RlService rlservice;
+    @Autowired
+    private PrService prService;
     @Autowired
     public void setReq_orderService(Req_orderService service) {
         this.service = service;
@@ -112,6 +121,16 @@ public class Req_orderController extends BaseController{
         qlentity = this.qualityService.save(qlentity,true,true);
         QualityDTO qldto = new QualityDTO();
         BeanUtils.copyProperties(qlentity,qldto);
+
+        //修改申请单状态
+        Rl rlentity=rlservice.getAssoVo(odentity.getRl_no()).getEntity();
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("4");//已申请/已采购
+        prentity=this.prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
 
         return this.buildSuccess();
     }

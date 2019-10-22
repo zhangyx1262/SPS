@@ -1,4 +1,13 @@
 package com.yonyou.warehousing.controller;
+import com.yonyou.order.po.Req_order;
+import com.yonyou.order.service.Req_orderService;
+import com.yonyou.quality.po.Quality;
+import com.yonyou.quality.service.QualityService;
+import com.yonyou.request.dto.PrDTO;
+import com.yonyou.request.po.Pr;
+import com.yonyou.request.service.PrService;
+import com.yonyou.review.po.Rl;
+import com.yonyou.review.service.RlService;
 import com.yonyou.warehousing.po.Warehousing;
 import com.yonyou.warehousing.dto.WarehousingDTO;
 import com.yonyou.warehousing.service.WarehousingService;
@@ -34,6 +43,17 @@ public class WarehousingController extends BaseController{
     private Logger logger = LoggerFactory.getLogger(WarehousingController.class);
     private final static  int PAGE_FLAG_LOAD_ALL = 1;
     private WarehousingService service;
+
+    @Autowired
+    private QualityService qcservice;
+
+    @Autowired
+    private Req_orderService odservice;
+
+    @Autowired
+    private RlService rlservice;
+    @Autowired
+    private PrService prService;
 
     @Autowired
     public void setWarehousingService(WarehousingService service) {
@@ -78,8 +98,43 @@ public class WarehousingController extends BaseController{
         }
     }
 
+    /**
+     * 退货成功
+     */
+    @RequestMapping(value = "/warehousing" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object warehousing(@RequestBody List<Warehousing> listData){
+        //获取入库单id
+        Warehousing entity=listData.get(0);
+        String whId=entity.getId();
+        //获取入库单
+        Warehousing whentity=service.getAssoVo(whId).getEntity();
+        //修改入库状态
+        whentity.setWhstate("1");
+        //保存修改
+        whentity=service.save(whentity,false,true);
+        WarehousingDTO whDTO= new WarehousingDTO();
+        BeanUtils.copyProperties(whentity,whDTO);
 
-     /**
+
+
+        //修改申请单状态
+        Quality qcentity=qcservice.getAssoVo(whentity.getQc_no()).getEntity();
+        Req_order odentity=odservice.getAssoVo(qcentity.getPo_no()).getEntity();
+        Rl rlentity=rlservice.getAssoVo(odentity.getRl_no()).getEntity();
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("8");//已申请/已入库
+        prentity=this.prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
+
+        return this.buildSuccess();
+    }
+
+
+    /**
      * 主子表合并处理--主表单条查询
      * @return GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是字表数据,一次性全部加载
      */

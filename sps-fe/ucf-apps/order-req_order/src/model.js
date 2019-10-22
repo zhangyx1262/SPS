@@ -111,6 +111,23 @@ export default {
             }
             actions.masterDetailMany.updateState({showLoading: false});
         },
+         /**
+         * 采购完成
+         * @param {*} param
+         * @param {*} getState
+         */
+        async order(param, getState) {
+            const {id} = param;
+            const {result}=processData(await api.order([{id}]), '采购成功');
+            const {status}=result;
+            if(status==='success'){
+                // 获取表pageSize;
+                const {req_orderObj} = getState().masterDetailMany;
+                const {pageSize} = req_orderObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+        },
         /**
          * 删除主表数据
          * @param {*} param

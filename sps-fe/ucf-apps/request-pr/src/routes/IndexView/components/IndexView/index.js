@@ -24,7 +24,7 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            SubModalVisible:false,//显示提交弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -87,6 +87,12 @@ export default class IndexView extends Component {
         actions.masterDetailMany.updateState({tabKey});
     }
 
+    /**
+     * 显示提交弹框
+     */
+    onClickSub = (checkTable) => {
+        this.setState({SubModalVisible: true, checkTable});
+    }
 
     /**
      * 显示删除弹框
@@ -188,6 +194,23 @@ export default class IndexView extends Component {
         });
     }
 
+    /**
+     *提交确定操作
+     * @param {number} type 1.确认 2.取消
+     */
+    async submitGoBack(type) {
+       
+        const {checkTable} = this.state; //获取审核的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({SubModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "pr") { // 主表
+                const {prIndex} = this.props;
+                const record = list[prIndex];
+                await actions.masterDetailMany.subpr(record);
+            }
+        }
+    }
     
 
     /**
@@ -310,7 +333,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            SubModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -345,7 +368,12 @@ export default class IndexView extends Component {
                             disabled={prForbid}
                             onClick={() => _this.onShowMainModal("pr", 2)}
                         >详情</Button>
-                        
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={prForbid}
+                            onClick={() => _this.onClickSub("pr")}
+                        >提交</Button>
                         <Button
                             className="ml8"
 
@@ -413,7 +441,11 @@ export default class IndexView extends Component {
                     confirmFn={() => _this.confirmGoBack(1)}
                     cancelFn={() => _this.confirmGoBack(2)}/>
 
-                
+                <Alert
+                    show={SubModalVisible}
+                    context="确定提交这条申请吗 ?"
+                    confirmFn={() => _this.submitGoBack(1)}
+                    cancelFn={() => _this.submitGoBack(2)}/>        
                 <Alert
                     show={delPicModalVisible}
                     context="确定删除文件吗 ?"

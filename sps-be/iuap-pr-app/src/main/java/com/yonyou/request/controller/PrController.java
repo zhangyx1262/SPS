@@ -10,6 +10,9 @@ import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
 
+import com.yonyou.review.dto.RlDTO;
+import com.yonyou.review.po.Rl;
+import com.yonyou.review.service.RlService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -82,7 +85,39 @@ public class PrController extends BaseController{
         }
     }
 
+    /**
+     * 提交申请
+     */
+    @RequestMapping(value = "/submitPr" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object submitPr(@RequestBody List<Pr> listData){
+        //获取申请单id
+        Pr entity=listData.get(0);
+        String prId=entity.getId();
+        //获取申请单
+        Pr prentity=service.getAssoVo(prId).getEntity();
+        //修改申请状态
+        prentity.setPstute("1");
+        //保存修改
+        prentity=service.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
 
+        //新增审核单
+        Rl rlentity=new Rl();
+        //填写审核单的数据
+        rlentity.setId("审核"+prentity.getPr_no());
+        rlentity.setRl_no("审核"+prentity.getPr_no());
+        rlentity.setPr_no(prentity.getPr_no()+"/"+prentity.getId());
+        rlentity.setRstute("0");
+
+        rlentity = this.rlservice.save(rlentity,true,true);
+        RlDTO rldto = new RlDTO();
+        BeanUtils.copyProperties(rlentity,rldto);
+
+
+        return this.buildSuccess();
+    }
 
      /**
      * 主子表合并处理--主表单条查询

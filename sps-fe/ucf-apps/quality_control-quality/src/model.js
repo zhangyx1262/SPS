@@ -112,6 +112,41 @@ export default {
             actions.masterDetailMany.updateState({showLoading: false});
         },
         /**
+         * 质检合格
+         * @param {*} param
+         * @param {*} getState
+         */
+        async qualityOK(param, getState) {
+            const {id} = param;
+            const {result}=processData(await api.qualityOK([{id}]), '质检合格已提交');
+            const {status}=result;
+            if(status==='success'){
+                // 获取表pageSize;
+                const {qualityObj} = getState().masterDetailMany;
+                const {pageSize} = qualityObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+        },
+        /**
+         * 质检不合格
+         * 
+         * @param {*} param
+         * @param {*} getState
+         */
+        async qualityFalse(param, getState) {
+            const {id} = param;
+            const {result}=processData(await api.qualityFalse([{id}]), '质检不合格已提交');
+            const {status}=result;
+            if(status==='success'){
+                // 获取表pageSize;
+                const {qualityObj} = getState().masterDetailMany;
+                const {pageSize} = qualityObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+        },
+        /**
          * 删除主表数据
          * @param {*} param
          * @param {*} getState

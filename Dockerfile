@@ -3,7 +3,7 @@ MAINTAINER licza licza@yonyou.com
 ADD ./ /app/
 WORKDIR /app/
 RUN cd sps-fe/ \
-    && ynpm install \
+    && npm install \
     && npm run build \
     && cd ../sps-be \
     && /usr/local/maven/bin/mvn clean install -U -Dmaven.test.skip=true

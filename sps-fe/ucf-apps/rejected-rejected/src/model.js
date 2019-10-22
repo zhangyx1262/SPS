@@ -112,6 +112,23 @@ export default {
             actions.masterDetailMany.updateState({showLoading: false});
         },
         /**
+         * 退货成功
+         * @param {*} param
+         * @param {*} getState
+         */
+        async reject(param, getState) {
+            const {id} = param;
+            const {result}=processData(await api.reject([{id}]), '退货成功');
+            const {status}=result;
+            if(status==='success'){
+                // 获取表pageSize;
+                const {rejectedObj} = getState().masterDetailMany;
+                const {pageSize} = rejectedObj;
+                const initPage = {pageIndex: 0, pageSize};
+                actions.masterDetailMany.loadList(initPage);
+            }
+        },
+        /**
          * 删除主表数据
          * @param {*} param
          * @param {*} getState

@@ -1,4 +1,8 @@
 package com.yonyou.rejected.controller;
+import com.yonyou.order.po.Req_order;
+import com.yonyou.order.service.Req_orderService;
+import com.yonyou.quality.po.Quality;
+import com.yonyou.quality.service.QualityService;
 import com.yonyou.rejected.po.Rejected;
 import com.yonyou.rejected.dto.RejectedDTO;
 import com.yonyou.rejected.service.RejectedService;
@@ -9,6 +13,12 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
+import com.yonyou.request.dto.PrDTO;
+import com.yonyou.request.po.Pr;
+import com.yonyou.request.service.PrService;
+import com.yonyou.review.po.Rl;
+import com.yonyou.review.service.RlService;
+import com.yonyou.warehousing.service.WarehousingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -34,6 +44,19 @@ public class RejectedController extends BaseController{
     private Logger logger = LoggerFactory.getLogger(RejectedController.class);
     private final static  int PAGE_FLAG_LOAD_ALL = 1;
     private RejectedService service;
+
+
+    @Autowired
+    private QualityService qcservice;
+
+    @Autowired
+    private Req_orderService odservice;
+
+    @Autowired
+    private RlService rlservice;
+    @Autowired
+    private PrService prService;
+
 
     @Autowired
     public void setRejectedService(RejectedService service) {
@@ -78,6 +101,41 @@ public class RejectedController extends BaseController{
         }
     }
 
+
+    /**
+     * 退货成功
+     */
+    @RequestMapping(value = "/reject" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object reject(@RequestBody List<Rejected> listData){
+        //获取退货单id
+        Rejected entity=listData.get(0);
+        String rjId=entity.getId();
+        //获取退货单
+        Rejected rjentity=service.getAssoVo(rjId).getEntity();
+        //修改退货状态
+        rjentity.setRjstate("1");
+        //保存修改
+        rjentity=service.save(rjentity,false,true);
+        RejectedDTO rjDTO= new RejectedDTO();
+        BeanUtils.copyProperties(rjentity,rjDTO);
+
+
+
+        //修改申请单状态
+        Quality qcentity=qcservice.getAssoVo(rjentity.getQc_no()).getEntity();
+        Req_order odentity=odservice.getAssoVo(qcentity.getPo_no()).getEntity();
+        Rl rlentity=rlservice.getAssoVo(odentity.getRl_no()).getEntity();
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("7");//已申请/已退货
+        prentity=this.prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
+
+        return this.buildSuccess();
+    }
 
      /**
      * 主子表合并处理--主表单条查询

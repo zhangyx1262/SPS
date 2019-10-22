@@ -1,4 +1,7 @@
 package com.yonyou.quality.controller;
+import com.yonyou.order.dto.Req_orderDTO;
+import com.yonyou.order.po.Req_order;
+import com.yonyou.order.service.Req_orderService;
 import com.yonyou.quality.po.Quality;
 import com.yonyou.quality.dto.QualityDTO;
 import com.yonyou.quality.service.QualityService;
@@ -9,6 +12,17 @@ import com.yonyou.iuap.baseservice.vo.GenericAssoVo;
 import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
 import com.yonyou.iuap.mvc.type.JsonResponse;
 import com.yonyou.iuap.ucf.dao.support.UcfPage;
+import com.yonyou.rejected.dto.RejectedDTO;
+import com.yonyou.rejected.po.Rejected;
+import com.yonyou.rejected.service.RejectedService;
+import com.yonyou.request.dto.PrDTO;
+import com.yonyou.request.po.Pr;
+import com.yonyou.request.service.PrService;
+import com.yonyou.review.po.Rl;
+import com.yonyou.review.service.RlService;
+import com.yonyou.warehousing.dto.WarehousingDTO;
+import com.yonyou.warehousing.po.Warehousing;
+import com.yonyou.warehousing.service.WarehousingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -34,6 +48,17 @@ public class QualityController extends BaseController{
     private Logger logger = LoggerFactory.getLogger(QualityController.class);
     private final static  int PAGE_FLAG_LOAD_ALL = 1;
     private QualityService service;
+    @Autowired
+    private RejectedService rjservice;
+    @Autowired
+    private WarehousingService whservice;
+    @Autowired
+    private Req_orderService odservice;
+
+    @Autowired
+    private RlService rlservice;
+    @Autowired
+    private PrService prService;
 
     @Autowired
     public void setQualityService(QualityService service) {
@@ -78,8 +103,96 @@ public class QualityController extends BaseController{
         }
     }
 
+    /**
+     * 质检合格
+     */
+    @RequestMapping(value = "/qualityOK" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object qualityOK(@RequestBody List<Quality> listData){
+        //获取质检单id
+        Quality entity=listData.get(0);
+        String qcId=entity.getId();
+        //获取质检单
+        Quality qcentity=service.getAssoVo(qcId).getEntity();
+        //修改质检状态
+        qcentity.setQc_state("1");
+        //保存修改
+        qcentity=service.save(qcentity,false,true);
+        QualityDTO qcDTO= new QualityDTO();
+        BeanUtils.copyProperties(qcentity,qcDTO);
 
-     /**
+        //新增入库单
+        Warehousing whentity=new Warehousing();
+        String prno=qcentity.getPo_no().substring(2);
+        whentity.setId("入库"+prno);
+        whentity.setWh_no("入库"+prno);
+        whentity.setQc_no(qcentity.getQc_no());
+        whentity.setWhstate("0");
+
+        whentity = this.whservice.save(whentity,true,true);
+        WarehousingDTO whdto = new WarehousingDTO();
+        BeanUtils.copyProperties(whentity,whdto);
+
+        //修改申请单状态
+        Req_order odentity=odservice.getAssoVo(qcentity.getPo_no()).getEntity();
+        Rl rlentity=rlservice.getAssoVo(odentity.getRl_no()).getEntity();
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("5");//已申请/质检合格
+        prentity=this.prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
+
+        return this.buildSuccess();
+    }
+
+    /**
+     * 质检不合格
+     */
+    @RequestMapping(value = "/qualityFalse" , method = RequestMethod.POST)
+    @ResponseBody
+    public Object qualityFalse(@RequestBody List<Quality> listData){
+        //获取质检单id
+        Quality entity=listData.get(0);
+        String qcId=entity.getId();
+        //获取质检单
+        Quality qcentity=service.getAssoVo(qcId).getEntity();
+        //修改质检状态
+        qcentity.setQc_state("2");
+        //保存修改
+        qcentity=service.save(qcentity,false,true);
+        QualityDTO qcDTO= new QualityDTO();
+        BeanUtils.copyProperties(qcentity,qcDTO);
+
+        //新增退货单
+        Rejected rjentity=new Rejected();
+        String prno=qcentity.getPo_no().substring(2);
+        rjentity.setId("退货"+prno);
+        rjentity.setRj_no("退货"+prno);
+        rjentity.setQc_no(qcentity.getQc_no());
+        rjentity.setRjstate("0");
+
+        rjentity = this.rjservice.save(rjentity,true,true);
+        RejectedDTO rjdto = new RejectedDTO();
+        BeanUtils.copyProperties(rjentity,rjdto);
+
+        //修改申请单状态
+        Req_order odentity=odservice.getAssoVo(qcentity.getPo_no()).getEntity();
+        Rl rlentity=rlservice.getAssoVo(odentity.getRl_no()).getEntity();
+        String prid=rlentity.getPr_no().substring(rlentity.getPr_no().indexOf("/")+1);
+        //修改申请单状态
+        Pr prentity= this.prService.getAssoVo(prid).getEntity();
+        prentity.setPstute("6");//已申请/质检合格
+        prentity=this.prService.save(prentity,false,true);
+        PrDTO prDTO= new PrDTO();
+        BeanUtils.copyProperties(prentity,prDTO);
+
+        return this.buildSuccess();
+    }
+
+
+    /**
      * 主子表合并处理--主表单条查询
      * @return GenericAssoVo ,entity中保存的是单条主表数据,sublist中保存的是字表数据,一次性全部加载
      */

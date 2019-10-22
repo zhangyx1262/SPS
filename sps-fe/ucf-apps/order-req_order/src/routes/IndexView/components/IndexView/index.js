@@ -24,6 +24,7 @@ export default class IndexView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            orderModalVisible:false,//采购完成弹框
             delModalVisible: false,
             modalVisible: false, // 添加、编辑、详情 弹框
             delPicModalVisible: false, // 添加、编辑、详情 弹框
@@ -91,6 +92,13 @@ export default class IndexView extends Component {
      */
     onClickDel = (checkTable) => {
         this.setState({delModalVisible: true, checkTable});
+    }
+
+    /**
+     * 显示采购完成弹框
+     */
+    onClickOrder  = (checkTable) => {
+        this.setState({orderModalVisible: true, checkTable});
     }
 
     /**
@@ -184,6 +192,24 @@ export default class IndexView extends Component {
             checkTable: type,
         });
     }
+
+    /**
+     *采购确定操作
+     * @param {number} type 1.删除 2.取消
+     */
+    async OrderGoBack(type) {
+        const {checkTable} = this.state; //获取删除的表名
+        const {list} = this.props[checkTable + "Obj"];
+        this.setState({orderModalVisible: false});
+        if (type === 1 && list.length > 0) {
+            if (checkTable === "req_order") { // 主表
+                const {req_orderIndex} = this.props;
+                const record = list[req_orderIndex];
+                await actions.masterDetailMany.order(record);
+            }
+        }
+    }
+
     /**
      *删除确定操作
      * @param {number} type 1.删除 2.取消
@@ -281,7 +307,7 @@ export default class IndexView extends Component {
             tabKey
         } = this.props;
         const {
-            delModalVisible, modalVisible, flag, checkTable,
+            orderModalVisible,delModalVisible, modalVisible, flag, checkTable,
             delPicModalVisible
         } = this.state;
 
@@ -316,6 +342,12 @@ export default class IndexView extends Component {
                             disabled={req_orderForbid}
                             onClick={() => _this.onShowMainModal("req_order", 2)}
                         >详情</Button>
+                        <Button
+                            className="ml8"
+                            shape='border'
+                            disabled={req_orderForbid}
+                            onClick={() => _this.onClickOrder("req_order")}
+                        >采购</Button>
                         <Button
                             className="ml8"
                             role="delete"
@@ -376,6 +408,13 @@ export default class IndexView extends Component {
                     show={showLoading}
                     fullScreen={true}
                 />
+                
+                <Alert
+                    show={orderModalVisible}
+                    context="确定采购完成了吗 ?"
+                    confirmFn={() => _this.OrderGoBack(1)}
+                    cancelFn={() => _this.OrderGoBack(2)}/>
+
                 <Alert
                     show={delModalVisible}
                     context="确定删除这条记录吗 ?"
